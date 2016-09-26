@@ -1,0 +1,179 @@
+---
+  root: true
+  env:
+    es6: true
+    browser: false
+    node: true
+  parser: babel-eslint
+  parserOptions:
+    sourceType: module
+    ecmaVersion: 6
+    ecmaFeatures:
+      impliedStrict: true
+  plugins:
+    - better
+    - filenames
+    - require-in-package
+    - babel
+  rules:
+    # try to keep filenames consistent
+    filenames/match-regex:
+      - 2
+      - ^([a-z][a-zA-Z-.]+)|([A-Z][A-Z_]+)|([A-Z][a-zA-Z]+)$
+
+    # disallow usage of console output
+    no-console: 2
+    no-debugger: 1
+    no-assert: 0
+    no-alert: 2
+
+    # check for missing dependencies
+    require-in-package/require-in-package: 2
+
+    #
+    better/no-classes: 0
+    better/no-new: 0
+    better/no-this: 0
+    better/no-exceptions: 1
+    better/no-ifs: 0
+    better/no-fors: 2
+    better/no-whiles: 2
+    better/no-switches: 2
+    better/no-deletes: 1
+    better/no-instanceofs: 2
+    better/no-nulls: 2
+    better/no-reassigns: 0
+    better/no-typeofs: 0
+    better/explicit-return: 1
+    better/no-variable-declaration: 0
+    prefer-template: 2
+    prefer-const:
+      - 2
+      - destructuring: any
+        ignoreReadBeforeAssign: false
+
+    no-undef: 2
+    no-shadow: 2
+    no-shadow-restricted-names: 2
+    no-var: 1
+    no-unused-vars:
+      - 2
+      - vars: local
+        args: after-used
+        argsIgnorePattern: ^_
+    no-use-before-define: 1
+    comma-dangle:
+      - 1
+      - always-multiline
+    babel/func-params-comma-dangle:
+      - 1
+      - always-multiline
+    quotes:
+      - 1
+      - single
+    no-underscore-dangle: 0
+    no-dupe-args: 2
+    no-dupe-keys: 2
+    no-empty: 2
+    no-ex-assign: 2
+    no-extra-boolean-cast: 2
+    semi:
+      - 2
+      - always
+    no-extra-semi: 2
+    no-trailing-spaces:
+      - 1
+      - skipBlankLines: true
+    no-irregular-whitespace: 2
+    no-negated-in-lhs: 2
+    no-obj-calls: 2
+    # code style
+    key-spacing:
+      - 2
+      - beforeColon: false
+        afterColon: true
+        mode: strict
+    comma-spacing:
+      - 2
+      - before: false
+        after: true
+    array-bracket-spacing:
+      - 2
+      - never
+    object-curly-spacing:
+      - 2
+      - always
+    space-in-parens:
+      - 2
+      - never
+    space-infix-ops: 2
+    space-unary-ops:
+      - 2
+      - words: true
+        nonwords: false
+    keyword-spacing:
+      - 2
+      - before: true
+        after: true
+    quote-props:
+      - 2
+      - consistent-as-needed
+      - keywords: false
+    yoda: 2
+    brace-style:
+      - 2
+      - 1tbs
+    curly:
+      - 2
+      - all
+    indent:
+      - 2
+      - 2
+      - SwitchCase: 1
+        outerIIFEBody: 1
+        MemberExpression: 1
+        VariableDeclarator:
+          var: 2
+          let: 2
+          const: 3
+    no-extra-parens: 2
+    no-unneeded-ternary: 2
+    no-nested-ternary: 2
+    multiline-ternary: 2
+    operator-linebreak:
+      - 2
+      - before
+    dot-location:
+      - 2
+      - property
+    dot-notation: 2
+    no-else-return: 2
+    no-cond-assign: 2
+    no-constant-condition: 2
+    # help with regexes
+    no-invalid-regexp: 2
+    no-control-regex: 2
+    no-empty-character-class: 2
+    no-regex-spaces: 2
+    # don't override functions (they make stuff confusing)
+    no-func-assign: 2
+    # avoid writing code that can behave in unexpected ways
+    no-inner-declarations: 2
+    no-unsafe-finally: 2
+    no-unsafe-negation: 2
+    # warn about possible mistakes
+    no-template-curly-in-string: 1
+    no-unexpected-multiline: 1
+    no-invalid-this: 1
+    no-empty-pattern: 2
+    no-loop-func: 1
+    # enforce guidelines to avoid errors
+    no-sparse-arrays: 2
+    consistent-return: 2
+    no-unreachable: 2
+    use-isnan: 2
+    valid-typeof: 2
+    eqeqeq: 2
+    no-const-assign: 2
+    # give advice
+    complexity: 1
