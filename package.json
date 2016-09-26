@@ -1,0 +1,98 @@
+{
+  "name": "pci-dss-sanitizer",
+  "version": "0.0.0-semantic-release",
+  "description": "Mask bank card info from strings",
+  "main": "lib/index.js",
+  "scripts": {
+    "prebuild": "eslint --cache src/**/*.js && rimraf lib",
+    "lint": "eslint --cache src/**/*.js test/**/*.js",
+    "build": "rollup -c",
+    "watch": "rollup -c --watch",
+    "test": "cross-env NODE_ENV=test nyc mocha test/*.js",
+    "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
+    "prepublish": "npm test",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "commit": "git-cz"
+  },
+  "homepage": "https://github.com/skedify/pci-dss-sanitizer",
+  "author": {
+    "name": "Skedify",
+    "email": "info@skedify.co",
+    "url": "http://skedify.co"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skedify/pci-dss-sanitizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/skedify/pci-dss-sanitizer/issues"
+  },
+  "keywords": [
+    "pci-dss",
+    "sanitize"
+  ],
+  "files": [
+    "lib"
+  ],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-plugin-syntax-trailing-function-commas": "^6.13.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
+    "chai": "^3.5.0",
+    "commitizen": "^2.8.6",
+    "cross-env": "^3.0.0",
+    "cz-conventional-changelog": "^1.2.0",
+    "eslint": "^3.6.0",
+    "eslint-plugin-babel": "^3.3.0",
+    "eslint-plugin-better": "^0.1.5",
+    "eslint-plugin-filenames": "^1.1.0",
+    "eslint-plugin-require-in-package": "^1.0.3",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.0.2",
+    "nyc": "^8.3.0",
+    "rimraf": "^2.5.4",
+    "rollup": "^0.36.0",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-eslint": "^3.0.0",
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-watch": "^2.5.0",
+    "semantic-release": "^4.3.5",
+    "validate-commit-msg": "^2.8.0"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "node_modules/.bin/validate-commit-msg",
+      "pre-push": "npm test && npm run check-coverage",
+      "post-merge": "npm install",
+      "post-rewrite": "npm install"
+    },
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "subjectPattern": "[a-z].+",
+      "subjectPatternErrorMsg": "Subject is invalid",
+      "helpMessage": "Use `npm run commit`. The subject should complete the following sentence: 'When applied, this commit will ...''"
+    }
+  }
+}
