@@ -1,5 +1,15 @@
 # PCI-DSS Sanitizer
 
+**Release:**
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/skedify/pci-dss-sanitizer/develop/LICENSE)
+[![npm](https://img.shields.io/npm/v/pci-dss-sanitizer.svg?maxAge=2592000)]()
+[![Build Status](https://img.shields.io/travis/skedify/pci-dss-sanitizer/master.svg?maxAge=2592000)]()
+[![Code Coverage](https://img.shields.io/codecov/c/github/skedify/pci-dss-sanitizer/master.svg?maxAge=2592000)]()
+
+**Development:**
+[![Build Status](https://img.shields.io/travis/skedify/pci-dss-sanitizer/develop.svg?maxAge=2592000)]()
+[![Code Coverage](https://img.shields.io/codecov/c/github/skedify/pci-dss-sanitizer/develop.svg?maxAge=2592000)]()
+[![GitHub issues](https://img.shields.io/github/issues/skedify/pci-dss-sanitizer.svg)](https://github.com/skedify/pci-dss-sanitizer/issues)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 ## Contributing
