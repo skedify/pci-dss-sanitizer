@@ -1,0 +1,17 @@
+{
+  "sourceRoot": "src",
+  "sourceType": "module",
+  "filenameRelative": "index.js",
+  "sourceMaps": "inline",
+  "plugins": [
+    "syntax-trailing-function-commas"
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "istanbul"
+      ]
+    }
+  }
+}
