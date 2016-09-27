@@ -13,7 +13,7 @@ describe('cardnumber', () => {
       stream.on('end', () => {
         const output = Buffer.concat(buffer).toString();
 
-        expect(output).to.equal('lorem ipsum 6xxx-xxxx xxxx xxxx.1 lorem ipsum');
+        expect(output).to.equal('lorem ipsum 6703-XXXX XXXX X211.1 lorem ipsum');
         done();
       });
 

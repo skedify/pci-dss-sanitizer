@@ -1,9 +1,11 @@
 import replaceCardNumber from './cardnumber/replace';
+import replaceAccountNumber from './accountnumber/replace';
 import filterCardNumberStream from './cardnumber/filterStream';
 
 export default function sanitize(input) {
-  return replaceCardNumber(input);
-  // TODO add bank account number matching
+  input = replaceAccountNumber(input);
+  input = replaceCardNumber(input);
+  return input;
 }
 
 export function async(input, callback) {
@@ -25,5 +27,4 @@ export function async(input, callback) {
 
     stream.end(input);
   });
-  // TODO find possible matches for account-numbers (IBAN)
 }
