@@ -1,3 +1,4 @@
+import replace from './replace';
 import { Transform } from 'stream';
 import { validate } from 'luhn';
 
@@ -15,18 +16,8 @@ export default function filterCardNumberStream() {
     const possible_card_number = buffer // take currently buffered characters
       .filter(cc => cc.match(/\d/)) // only consider digits
       .join(''); // concat into a string
-
-    // console.log(`trying to match current buffer: ${buffer.join('')} | reduced to ${possible_card_number}`);
-
-    // if the
     if (possible_card_number.length >= MIN_LENGTH && validate(possible_card_number)) {
-      return unbuffer().replace(/\d/g, (match, offset, string) => {
-        // console.log(`match: ${match}, offset: ${offset}, string: ${string}`);
-        if (offset > 1 && offset < string.length - 1) {
-          return 'x';
-        }
-        return match;
-      });
+      return replace(unbuffer());
     }
 
     return false;
@@ -53,7 +44,6 @@ export default function filterCardNumberStream() {
         // take all the numbers currently buffered to check if they form a bank card number
         const match_with_new_char = matchBuffer();
 
-        // if the
         if (match_with_new_char !== false) {
           this.push(match_with_new_char);
         } else if (buffer.length > MAX_LENGTH * 2) {

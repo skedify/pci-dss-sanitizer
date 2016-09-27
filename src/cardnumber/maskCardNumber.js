@@ -1,5 +1,5 @@
 export default function maskCardNumber(input) {
-  // count tne number of digits in the number
+  // count the number of digits in the number
   const total_digits = input.split('')
     .filter(cc => cc.match(/\d/)) // only consider digits
     .length; // concat into a string
