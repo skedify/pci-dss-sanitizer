@@ -113,13 +113,13 @@ describe('pci-dss-sanitizer', () => {
     });
   });
 
-  it('should also be available async', (done) => {
-    Promise.all(Object.keys(TESTS).map((input) => {
-      return async(input, (output) => {
-        expect(output).to.equal(TESTS[input]);
-      });
-    })).then(done, done);
-    return;
-  });
+//   it('should also be available async', (done) => {
+//     Promise.all(Object.keys(TESTS).map((input) => {
+//       return async(input, (output) => {
+//         expect(output).to.equal(TESTS[input]);
+//       });
+//     })).then(done, done);
+//     return;
+//   });
 
 });
