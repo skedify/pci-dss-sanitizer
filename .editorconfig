@@ -1,0 +1,25 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+continuation_indent_size = 2
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.js]
+curly_bracket_next_line = false
+spaces_around_operators = true
+spaces_around_brackets = none
+indent_brace_style = KNF
+continuation_indent_size = 2
+
+[*.json]
+curly_bracket_next_line = false
+spaces_around_operators = true
+spaces_around_brackets = none
+indent_brace_style = KNF
+continuation_indent_size = 2
+insert_final_newline = false
