@@ -1,4 +1,4 @@
-import { REPLACEMENT_CHARACTER, CARDNUMBER_VISIBILE_DIGITS_HEAD, CARDNUMBER_VISIBILE_DIGITS_TAIL } from './CardNumberRegExp'
+import { REPLACEMENT_CHARACTER, CARDNUMBER_VISIBILE_DIGITS_HEAD, CARDNUMBER_VISIBILE_DIGITS_TAIL } from './CardNumberRegExp';
 
 export default function maskCardNumber(input) {
   // count the number of digits in the number

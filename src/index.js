@@ -9,7 +9,7 @@ export default function sanitize(input) {
 }
 
 export function async(input, callback) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const stream = filterCardNumberStream();
 
     const buffer = [];
@@ -26,5 +26,6 @@ export function async(input, callback) {
     });
 
     stream.end(input);
+    return;
   });
 }
