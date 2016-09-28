@@ -1,6 +1,6 @@
 import replaceCardNumber from './cardnumber/replace';
 import replaceAccountNumber from './accountnumber/replace';
-import filterCardNumberStream from './cardnumber/filterStream';
+import createCardNumberFilterStream from './cardnumber/createCardNumberFilterStream';
 
 export default function sanitize(input) {
   input = replaceAccountNumber(input);
@@ -10,7 +10,7 @@ export default function sanitize(input) {
 
 export function async(input, callback) {
   return new Promise((resolve) => {
-    const stream = filterCardNumberStream();
+    const stream = createCardNumberFilterStream();
 
     const buffer = [];
     stream.on('data', buffer.push.bind(buffer));

@@ -1,79 +1,85 @@
-export const CARDNUMBER_VISIBILE_DIGITS_HEAD = 4;
-export const CARDNUMBER_VISIBILE_DIGITS_TAIL = 4;
-
-export const REPLACEMENT_CHARACTER = 'X';
-
 export const FILLER_CHARACTERS = '[\\s\\.\\-]';
 
 export const IBAN_FORMATS = [
-  new RegExp(`^AL([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, 'i'), //Albania'
-  new RegExp(`^AD([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, 'i'), //Andorra'
-  new RegExp(`^AT([0-9]${FILLER_CHARACTERS}?){18}$`, 'i'), //Austria'
-  new RegExp(`^AZ([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){20}$`, 'i'), //Republic of Azerbaijan'
-  new RegExp(`^BH([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){14}$`, 'i'), //Kingdom of Bahrain'
-  new RegExp(`^BE([0-9]${FILLER_CHARACTERS}?){14}$`, 'i'), //Belgium'
-  new RegExp(`^BA([0-9]${FILLER_CHARACTERS}?){18}$`, 'i'), //Bosnia and Herzegovina'
-  new RegExp(`^BR([0-9]${FILLER_CHARACTERS}?){25}([A-Z]${FILLER_CHARACTERS}?){1}([0-9A-Z]${FILLER_CHARACTERS}?){1}$`, 'i'), //Brazil'
-  new RegExp(`^BG([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){6}([0-9A-Z]${FILLER_CHARACTERS}?){8}$`, 'i'), //Bulgaria'
-  new RegExp(`^CR([0-9]${FILLER_CHARACTERS}?){19}$`, 'i'), //Costa Rica'
-  new RegExp(`^HR([0-9]${FILLER_CHARACTERS}?){19}$`, 'i'), //Croatia'
-  new RegExp(`^CY([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, 'i'), //Cyprus'
-  new RegExp(`^CZ([0-9]${FILLER_CHARACTERS}?){22}$`, 'i'), //Czech Republic'
-  new RegExp(`^DK([0-9]${FILLER_CHARACTERS}?){16}$|^FO([0-9]${FILLER_CHARACTERS}?){16}$|^GL([0-9]${FILLER_CHARACTERS}?){16}$`, 'i'), //Denmark'
-  new RegExp(`^DO([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){20}$`, 'i'), //Dominican Republic'
-  new RegExp(`^EE([0-9]${FILLER_CHARACTERS}?){18}$`, 'i'), //Estonia'
-  new RegExp(`^FI([0-9]${FILLER_CHARACTERS}?){16}$`, 'i'), //Finland'
-  new RegExp(`^FR([0-9]${FILLER_CHARACTERS}?){12}([0-9A-Z]${FILLER_CHARACTERS}?){11}([0-9]${FILLER_CHARACTERS}?){2}$`, 'i'), //France'
-  new RegExp(`^GE([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){2}([0-9]${FILLER_CHARACTERS}?){16}$`, 'i'), //Georgia'
-  new RegExp(`^DE([0-9]${FILLER_CHARACTERS}?){20}$`, 'i'), //Germany'
-  new RegExp(`^GI([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){15}$`, 'i'), //Gibraltar'
-  new RegExp(`^GR([0-9]${FILLER_CHARACTERS}?){9}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, 'i'), //Greece'
-  new RegExp(`^GT([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){24}$`, 'i'), //Guatemala'
-  new RegExp(`^HU([0-9]${FILLER_CHARACTERS}?){26}$`, 'i'), //Hungary'
-  new RegExp(`^IS([0-9]${FILLER_CHARACTERS}?){24}$`, 'i'), //Iceland'
-  new RegExp(`^IE([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){14}$`, 'i'), //Ireland'
-  new RegExp(`^IL([0-9]${FILLER_CHARACTERS}?){21}$`, 'i'), //Israel'
-  new RegExp(`^IT([0-9]${FILLER_CHARACTERS}?){2}[A-Z]([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, 'i'), //Italy'
-  new RegExp(`^JO([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){18}$`, 'i'), //Jordan'
-  new RegExp(`^KZ([0-9]${FILLER_CHARACTERS}?){5}([0-9A-Z]${FILLER_CHARACTERS}?){13}$`, 'i'), //Kazakhstan'
-  new RegExp(`^XK([0-9]${FILLER_CHARACTERS}?){18}$`, 'i'), //Republic of Kosovo'
-  new RegExp(`^KW([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){22}$`, 'i'), //KUWAIT'
-  new RegExp(`^LV([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){13}$`, 'i'), //Latvia'
-  new RegExp(`^LB([0-9]${FILLER_CHARACTERS}?){6}([0-9A-Z]${FILLER_CHARACTERS}?){20}$`, 'i'), //LEBANON'
-  new RegExp(`^LI([0-9]${FILLER_CHARACTERS}?){7}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, 'i'), //Liechtenstein ('Principality of')'
-  new RegExp(`^LT([0-9]${FILLER_CHARACTERS}?){18}$`, 'i'), //Lithuania'
-  new RegExp(`^LU([0-9]${FILLER_CHARACTERS}?){5}([0-9A-Z]${FILLER_CHARACTERS}?){13}$`, 'i'), //Luxembourg'
-  new RegExp(`^MK([0-9]${FILLER_CHARACTERS}?){5}([0-9A-Z]${FILLER_CHARACTERS}?){10}([0-9]${FILLER_CHARACTERS}?){2}$`, 'i'), //Macedonia'
-  new RegExp(`^MT([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){5}([0-9A-Z]${FILLER_CHARACTERS}?){18}$`, 'i'), //Malta'
-  new RegExp(`^MR([0-9]${FILLER_CHARACTERS}?){25}$`, 'i'), //Mauritania'
-  new RegExp(`^MU([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){19}([A-Z]${FILLER_CHARACTERS}?){3}$`, 'i'), //Mauritius'
-  new RegExp(`^MD([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){20}$`, 'i'), //Moldova'
-  new RegExp(`^MC([0-9]${FILLER_CHARACTERS}?){12}([0-9A-Z]${FILLER_CHARACTERS}?){11}([0-9]${FILLER_CHARACTERS}?){2}$`, 'i'), //Monaco'
-  new RegExp(`^ME([0-9]${FILLER_CHARACTERS}?){20}$`, 'i'), //Montenegro'
-  new RegExp(`^NL([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){10}$`, 'i'), //The Netherlands'
-  new RegExp(`^NO([0-9]${FILLER_CHARACTERS}?){13}$`, 'i'), //Norway'
-  new RegExp(`^PK([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){20}$`, 'i'), //Pakistan'
-  new RegExp(`^PS([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){25}$`, 'i'), //Palestine'
-  new RegExp(`^PL([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, 'i'), //Poland'
-  new RegExp(`^PT([0-9]${FILLER_CHARACTERS}?){23}$`, 'i'), //Portugal'
-  new RegExp(`^QA([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){21}$`, 'i'), //Qatar'
-  new RegExp(`^RO([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, 'i'), //Romania'
-  new RegExp(`^LC([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){28}$`, 'i'), //Saint Lucia'
-  new RegExp(`^SM([0-9]${FILLER_CHARACTERS}?){2}[A-Z]([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, 'i'), //San Marino'
-  new RegExp(`^ST([0-9]${FILLER_CHARACTERS}?){23}$`, 'i'), //Sao Tome And Principe
-  new RegExp(`^SA([0-9]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){18}$`, 'i'), //Saudi Arabia'
-  new RegExp(`^RS([0-9]${FILLER_CHARACTERS}?){20}$`, 'i'), //Serbia'
-  new RegExp(`^SC([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){20}([A-Z]${FILLER_CHARACTERS}?){3}$`, 'i'), //Seychelles'
-  new RegExp(`^SK([0-9]${FILLER_CHARACTERS}?){22}$`, 'i'), //Slovak Republic'
-  new RegExp(`^SI([0-9]${FILLER_CHARACTERS}?){17}$`, 'i'), //Slovenia'
-  new RegExp(`^ES([0-9]${FILLER_CHARACTERS}?){22}$`, 'i'), //Spain'
-  new RegExp(`^SE([0-9]${FILLER_CHARACTERS}?){22}$`, 'i'), //Sweden'
-  new RegExp(`^CH([0-9]${FILLER_CHARACTERS}?){7}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, 'i'), //Switzerland'
-  new RegExp(`^TL38${FILLER_CHARACTERS}?([0-9]${FILLER_CHARACTERS}?){19}$`, 'i'), //Timor-Leste'
-  new RegExp(`^TN59${FILLER_CHARACTERS}?([0-9]${FILLER_CHARACTERS}?){20}$`, 'i'), //Tunisia'
-  new RegExp(`^TR([0-9]${FILLER_CHARACTERS}?){7}([0-9A-Z]${FILLER_CHARACTERS}?){17}$`, 'i'), //Turkey'
-  new RegExp(`^UA([0-9]${FILLER_CHARACTERS}?){8}([0-9A-Z]${FILLER_CHARACTERS}?){19}$`, 'i'), //Ukraine'
-  new RegExp(`^AE([0-9]${FILLER_CHARACTERS}?){21}$`, 'i'), //United Arab Emirates'
-  new RegExp(`^GB([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){14}$`, 'i'), //United Kingdom'
-  new RegExp(`^VG([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){16}$`, 'i'), //Virgin Islands, British'
+  `^AL([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, //Albania
+  `^AD([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, //Andorra
+  `^AT([0-9]${FILLER_CHARACTERS}?){18}$`, //Austria
+  `^AZ([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){20}$`, //Republic of Azerbaijan
+  `^BH([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){14}$`, //Kingdom of Bahrain
+  `^BE([0-9]${FILLER_CHARACTERS}?){14}$`, //Belgium
+  `^BA([0-9]${FILLER_CHARACTERS}?){18}$`, //Bosnia and Herzegovina
+  `^BR([0-9]${FILLER_CHARACTERS}?){25}([A-Z]${FILLER_CHARACTERS}?){1}([0-9A-Z]${FILLER_CHARACTERS}?){1}$`, //Brazil
+  `^BG([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){6}([0-9A-Z]${FILLER_CHARACTERS}?){8}$`, //Bulgaria
+  `^CR([0-9]${FILLER_CHARACTERS}?){19}$`, //Costa Rica
+  `^HR([0-9]${FILLER_CHARACTERS}?){19}$`, //Croatia
+  `^CY([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, //Cyprus
+  `^CZ([0-9]${FILLER_CHARACTERS}?){22}$`, //Czech Republic
+  `^DK([0-9]${FILLER_CHARACTERS}?){16}$|^FO([0-9]${FILLER_CHARACTERS}?){16}$|^GL([0-9]${FILLER_CHARACTERS}?){16}$`, //Denmark
+  `^DO([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){20}$`, //Dominican Republic
+  `^EE([0-9]${FILLER_CHARACTERS}?){18}$`, //Estonia
+  `^FI([0-9]${FILLER_CHARACTERS}?){16}$`, //Finland
+  `^FR([0-9]${FILLER_CHARACTERS}?){12}([0-9A-Z]${FILLER_CHARACTERS}?){11}([0-9]${FILLER_CHARACTERS}?){2}$`, //France
+  `^GE([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){2}([0-9]${FILLER_CHARACTERS}?){16}$`, //Georgia
+  `^DE([0-9]${FILLER_CHARACTERS}?){20}$`, //Germany
+  `^GI([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){15}$`, //Gibraltar
+  `^GR([0-9]${FILLER_CHARACTERS}?){9}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, //Greece
+  `^GT([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){24}$`, //Guatemala
+  `^HU([0-9]${FILLER_CHARACTERS}?){26}$`, //Hungary
+  `^IS([0-9]${FILLER_CHARACTERS}?){24}$`, //Iceland
+  `^IE([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){14}$`, //Ireland
+  `^IL([0-9]${FILLER_CHARACTERS}?){21}$`, //Israel
+  `^IT([0-9]${FILLER_CHARACTERS}?){2}[A-Z]([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, //Italy
+  `^JO([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){18}$`, //Jordan
+  `^KZ([0-9]${FILLER_CHARACTERS}?){5}([0-9A-Z]${FILLER_CHARACTERS}?){13}$`, //Kazakhstan
+  `^XK([0-9]${FILLER_CHARACTERS}?){18}$`, //Republic of Kosovo
+  `^KW([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){22}$`, //KUWAIT
+  `^LV([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){13}$`, //Latvia
+  `^LB([0-9]${FILLER_CHARACTERS}?){6}([0-9A-Z]${FILLER_CHARACTERS}?){20}$`, //LEBANON
+  `^LI([0-9]${FILLER_CHARACTERS}?){7}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, //Liechtenstein ('Principality of')
+  `^LT([0-9]${FILLER_CHARACTERS}?){18}$`, //Lithuania
+  `^LU([0-9]${FILLER_CHARACTERS}?){5}([0-9A-Z]${FILLER_CHARACTERS}?){13}$`, //Luxembourg
+  `^MK([0-9]${FILLER_CHARACTERS}?){5}([0-9A-Z]${FILLER_CHARACTERS}?){10}([0-9]${FILLER_CHARACTERS}?){2}$`, //Macedonia
+  `^MT([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){5}([0-9A-Z]${FILLER_CHARACTERS}?){18}$`, //Malta
+  `^MR([0-9]${FILLER_CHARACTERS}?){25}$`, //Mauritania
+  `^MU([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){19}([A-Z]${FILLER_CHARACTERS}?){3}$`, //Mauritius
+  `^MD([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){20}$`, //Moldova
+  `^MC([0-9]${FILLER_CHARACTERS}?){12}([0-9A-Z]${FILLER_CHARACTERS}?){11}([0-9]${FILLER_CHARACTERS}?){2}$`, //Monaco
+  `^ME([0-9]${FILLER_CHARACTERS}?){20}$`, //Montenegro
+  `^NL([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){10}$`, //The Netherlands
+  `^NO([0-9]${FILLER_CHARACTERS}?){13}$`, //Norway
+  `^PK([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){20}$`, //Pakistan
+  `^PS([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){25}$`, //Palestine
+  `^PL([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, //Poland
+  `^PT([0-9]${FILLER_CHARACTERS}?){23}$`, //Portugal
+  `^QA([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){21}$`, //Qatar
+  `^RO([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){16}$`, //Romania
+  `^LC([0-9]${FILLER_CHARACTERS}?){2}([0-9A-Z]${FILLER_CHARACTERS}?){28}$`, //Saint Lucia
+  `^SM([0-9]${FILLER_CHARACTERS}?){2}[A-Z]([0-9]${FILLER_CHARACTERS}?){10}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, //San Marino
+  `^ST([0-9]${FILLER_CHARACTERS}?){23}$`, //Sao Tome And Princip
+  `^SA([0-9]${FILLER_CHARACTERS}?){4}([0-9A-Z]${FILLER_CHARACTERS}?){18}$`, //Saudi Arabia
+  `^RS([0-9]${FILLER_CHARACTERS}?){20}$`, //Serbia
+  `^SC([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){20}([A-Z]${FILLER_CHARACTERS}?){3}$`, //Seychelles
+  `^SK([0-9]${FILLER_CHARACTERS}?){22}$`, //Slovak Republic
+  `^SI([0-9]${FILLER_CHARACTERS}?){17}$`, //Slovenia
+  `^ES([0-9]${FILLER_CHARACTERS}?){22}$`, //Spain
+  `^SE([0-9]${FILLER_CHARACTERS}?){22}$`, //Sweden
+  `^CH([0-9]${FILLER_CHARACTERS}?){7}([0-9A-Z]${FILLER_CHARACTERS}?){12}$`, //Switzerland
+  `^TL38${FILLER_CHARACTERS}?([0-9]${FILLER_CHARACTERS}?){19}$`, //Timor-Leste
+  `^TN59${FILLER_CHARACTERS}?([0-9]${FILLER_CHARACTERS}?){20}$`, //Tunisia
+  `^TR([0-9]${FILLER_CHARACTERS}?){7}([0-9A-Z]${FILLER_CHARACTERS}?){17}$`, //Turkey
+  `^UA([0-9]${FILLER_CHARACTERS}?){8}([0-9A-Z]${FILLER_CHARACTERS}?){19}$`, //Ukraine
+  `^AE([0-9]${FILLER_CHARACTERS}?){21}$`, //United Arab Emirates
+  `^GB([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){14}$`, //United Kingdom
+  `^VG([0-9]${FILLER_CHARACTERS}?){2}([A-Z]${FILLER_CHARACTERS}?){4}([0-9]${FILLER_CHARACTERS}?){16}$`, //Virgin Islands, British
 ];
+
+/**
+ * Regular Expression that matches a bank card number of a particular length
+ */
+export default class IBANRegExp extends RegExp {
+
+  constructor() { // eslint-disable-line better/explicit-return
+    super(IBAN_FORMATS.map(f => `(${f})`).join('|'), 'i');
+  }
+
+}
