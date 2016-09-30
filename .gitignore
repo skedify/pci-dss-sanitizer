@@ -41,3 +41,5 @@ jspm_packages
 
 # Directory for generated libs
 lib
+
+.idea
