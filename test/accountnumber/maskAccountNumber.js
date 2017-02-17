@@ -1,4 +1,4 @@
-import maskAccountNumber from '../../src/accountnumber/maskAccountNumber';
+import replace from '../../src/accountnumber/replace';
 import { expect } from 'chai';
 
 import { ACCOUNTNUMBERS } from '../.data';
@@ -10,7 +10,7 @@ describe('accountnumber', () => {
     it('should mask all digits except the first and final four', () => {
 
       Object.keys(ACCOUNTNUMBERS).forEach(input => {
-        expect(maskAccountNumber(input)).to.equal(ACCOUNTNUMBERS[input]);
+        expect(replace(input)).to.equal(ACCOUNTNUMBERS[input]);
         return;
       });
 
