@@ -26,6 +26,10 @@ export const CARDNUMBERS = {
   'For later reference I\'ll leave my card number here, 5506920809243667.': 'For later reference I\'ll leave my card number here, 5506XXXXXXXX3667.',
   '(378282246310005)': '(3782XXXXXXX0005)',
   'My number "4111111111111111" should be used': 'My number "4111XXXXXXXX1111" should be used',
+  '6703 0513 9279 8300 2': '6703 XXXX XXXX X300 2',
+  'text before 6703 0513 9279 8300 2': 'text before 6703 XXXX XXXX X300 2',
+  '6703 0513 9279 8300 2 text after': '6703 XXXX XXXX X300 2 text after',
+  'text before 6703 0513 9279 8300 2 text after': 'text before 6703 XXXX XXXX X300 2 text after',
 };
 
 export const ACCOUNTNUMBERS = {
@@ -114,4 +118,8 @@ export const ACCOUNTNUMBERS = {
   '!RO49 AAAA 1B31 0075 9384 0000!': '!RO49 XXXX XXXX XXXX XXXX 0000!',
   '$ to MT84 MALT 0110 0001 2345 MTLC AST0 01S please': '$ to MT84 XXXX XXXX XXXX XXXX XXXX XXX0 01S please',
   '& $$$NO93 8601 1117 947$$$': '& $$$NO93 XXXX XXX7 947$$$',
+  'BE27063570936173': 'BE27 XXXX XXXX 6173',
+  'text before BE27063570936173': 'text before BE27 XXXX XXXX 6173',
+  'BE27063570936173 text after': 'BE27 XXXX XXXX 6173 text after',
+  'text before BE27063570936173 text after': 'text before BE27 XXXX XXXX 6173 text after',
 };
