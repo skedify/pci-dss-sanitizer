@@ -1,16 +1,25 @@
-import maskCardNumber from '../../src/cardnumber/maskCardNumber';
+import replace from '../../src/cardnumber/replace';
 import { expect } from 'chai';
 
-describe('cardnumber', () => {
+import { CARDNUMBERS, PSEUDO_CARDNUMBERS } from '../.data';
 
-  describe('maskCardNumber', () => {
+describe('cardnumber/replace', () => {
 
-    it('should mask all digits except the first and final four', () => {
+  it('should mask all digits except the first and final four', () => {
 
-      expect(maskCardNumber('6703-7332 1913 8211.1')).to.equal('6703-XXXX XXXX X211.1');
-
+    Object.keys(CARDNUMBERS).forEach(input => {
+      expect(replace(input)).to.equal(CARDNUMBERS[input]);
+      return;
     });
 
+  });
+
+  it('should not mask something that looks like a card number but isn\'t', () => {
+
+    PSEUDO_CARDNUMBERS.forEach(input => {
+      expect(replace(input)).to.equal(input);
+      return;
+    });
   });
 
 });

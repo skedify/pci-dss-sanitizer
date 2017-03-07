@@ -1,15 +1,11 @@
-import { validate } from 'luhn';
-
-import maskCardNumber from './maskCardNumber';
+import maskLuhn from './maskLuhn';
 
 export default function replaceIfCardNumber(match, p1) {
-  const only_digits = p1.split('')
-    .filter(cc => cc.match(/\d/)) // only consider digits
-    .join(''); // concat into a string
+  const masked = maskLuhn(p1);
 
-  if (validate(only_digits)) {
-    return maskCardNumber(p1);
+  if (masked === undefined) {
+    return p1;
   }
 
-  return p1;
+  return masked;
 }
