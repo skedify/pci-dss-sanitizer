@@ -14,7 +14,6 @@
     - better
     - filenames
     - require-in-package
-    - babel
   rules:
     # try to keep filenames consistent
     filenames/match-regex:
@@ -63,9 +62,6 @@
         argsIgnorePattern: ^_
     no-use-before-define: 1
     comma-dangle:
-      - 1
-      - always-multiline
-    babel/func-params-comma-dangle:
       - 1
       - always-multiline
     quotes:
