@@ -3,9 +3,10 @@ import { expect } from 'chai';
 
 import { ACCOUNTNUMBERS } from '../.data';
 
-describe('accountnumber/createIBANFilterStream', () => {
+describe('accountnumber/createIBANFilterStream', function() {
 
-  it('should mask a card number in a stream', (done) => {
+  it('should mask a card number in a stream', function(done) {
+    this.timeout(4000);
 
     const inputs = Object.keys(ACCOUNTNUMBERS);
     let count = inputs.length;
