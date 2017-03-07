@@ -1,17 +1,13 @@
 import IBANRegExp from './IBANRegExp';
+import maskIBAN from './maskIBAN';
+import repeatUntilStable from '../utils/repeatUntilStable';
 
-import maskAccountNumber from './maskAccountNumber';
+const IBAN = new IBANRegExp();
 
-export default function replace(input) {
-
-  const masked = input.replace(new IBANRegExp(), (match) => {
-    return maskAccountNumber(match);
-  });
-
-  if (masked === input) { // no more matches were found, so we can stop processing
-    return input;
-  }
-
-  // try to find another match
-  return replace(masked);
+export default function replace(text) {
+  return repeatUntilStable(text,
+    input => input.replace(IBAN,
+      match => maskIBAN(match),
+    ),
+  );
 }
