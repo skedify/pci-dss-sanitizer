@@ -6,7 +6,7 @@ import { ACCOUNTNUMBERS } from '../.data';
 describe('accountnumber/createIBANFilterStream', function() {
 
   it('should mask a card number in a stream', function(done) {
-    this.timeout(4000);
+    this.timeout(0); // eslint-disable-line no-invalid-this
 
     const inputs = Object.keys(ACCOUNTNUMBERS);
     let count = inputs.length;
