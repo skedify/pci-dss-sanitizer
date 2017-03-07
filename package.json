@@ -36,7 +36,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "luhn": "~2.1.0"
+    "luhn": "~2.1.0",
+    "multipipe": "^1.0.2"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -45,6 +46,7 @@
     "babel-plugin-syntax-trailing-function-commas": "^6.13.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
     "chai": "^3.5.0",
+    "codecov.io": "^0.1.6",
     "commitizen": "^2.8.6",
     "cross-env": "^3.0.0",
     "cz-conventional-changelog": "^1.2.0",
@@ -53,6 +55,7 @@
     "eslint-plugin-better": "^0.1.5",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-require-in-package": "^1.0.3",
+    "ghooks": "^2.0.0",
     "istanbul": "^0.4.5",
     "mocha": "^3.0.2",
     "nyc": "^8.3.0",

@@ -1,9 +1,9 @@
 import sanitize, { async } from '../src/index';
 import { expect } from 'chai';
 
-import { CARDNUMBERS, ACCOUNTNUMBERS } from './.data.js';
+import { CARDNUMBERS, ACCOUNTNUMBERS, BOTH } from './.data.js';
 
-const TESTS = Object.assign({}, CARDNUMBERS, ACCOUNTNUMBERS);
+const TESTS = Object.assign({}, CARDNUMBERS, ACCOUNTNUMBERS, BOTH);
 
 describe('pci-dss-sanitizer', () => {
   it('should export a function', () => {
@@ -16,12 +16,14 @@ describe('pci-dss-sanitizer', () => {
     });
   });
 
-  it.skip('should also be available async', (done) => {
+  it('should also be available async', (done) => {
     Promise.all(Object.keys(TESTS).map((input) => {
       return async(input, (output) => {
         expect(output).to.equal(TESTS[input]);
       });
-    })).then(done, done);
+    })).then(() => {
+      done();
+    }, done);
     return;
   });
 
