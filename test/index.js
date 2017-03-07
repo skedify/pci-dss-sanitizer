@@ -18,7 +18,7 @@ describe('pci-dss-sanitizer', function() {
   });
 
   it('should also be available async', function(done) {
-    this.timeout(4000); // eslint-disable-line no-invalid-this
+    this.timeout(0); // eslint-disable-line no-invalid-this
 
     Promise.all(Object.keys(TESTS).map((input) => {
       return async(input, (output) => {
