@@ -16,6 +16,7 @@ export default function expectChars(regex, amount = 1) {
     reset: {
       value: () => {
         remaining = amount;
+        return;
       },
     },
   }));
