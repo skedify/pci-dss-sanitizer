@@ -12,6 +12,37 @@
 [![GitHub issues](https://img.shields.io/github/issues/skedify/pci-dss-sanitizer.svg)](https://github.com/skedify/pci-dss-sanitizer/issues)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
+## Usage
+
+You can use this synchronously
+```javascript
+import sanitize from 'pci-dss-sanitizer';
+const unsanitized_string = 'your string containing sensitive banking info';
+const sanitized_string = sanitize(unsanitized_string);
+```
+
+Or you can use it as a stream _(this is actually the recommended way to use this library)_
+
+```javascript
+import { createStream as createSanitizerStream } from 'pci-dss-sanitizer';
+const unsanitized_stream = process.stdin;
+const sanitized_stream = unsanitized_stream.pipe(createSanitizerStream())
+sanitized_stream.pipe(process.stdout);
+// you could also write this as a one-liner:
+process.stdin.pipe(createSanitizerStream()).pipe(process.stdout);
+```
+
+Or if you're more into Promises/callbacks, you could use it as an async function
+
+```javascript
+import { async as sanitizeAsync } from 'pci-dss-sanitizer';
+const unsanitized_string = 'your string containing sensitive banking info';
+const sanitized_promise = sanitizeAsync(unsanitized_string, your_optional_callback_here);
+sanitized_promise.then(function(sanitized_string) {
+  ...
+});
+```
+
 ## Contributing
 
 Use `npm run commit` when you want to commit a change.
