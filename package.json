@@ -8,7 +8,7 @@
     "lint": "eslint --cache src/**/*.js test/**/*.js",
     "build": "rollup -c",
     "watch": "rollup -c --watch",
-    "test": "cross-env NODE_ENV=test nyc mocha test/[^.]*.js test/**/[^.]*.js",
+    "test": "cross-env NODE_ENV=test nyc mocha test/*.js test/**/*.js",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
     "prepublish": "npm test",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
