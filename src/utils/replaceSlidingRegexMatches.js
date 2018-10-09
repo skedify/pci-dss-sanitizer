@@ -24,6 +24,7 @@ function cloneRegex(regex) {
 
 export default function replaceSlidingRegexMatches(input, replacer, regex) {
   const result = regex.exec(input);
+
   if (result === null) {
     return input;
   }
@@ -35,11 +36,9 @@ export default function replaceSlidingRegexMatches(input, replacer, regex) {
   if (next_input !== input) {
     return replaceSlidingRegexMatches(next_input, replacer, cloneRegex(regex));
   }
-
+  
   // move cursor of regex so the same match is not returned again
-  if (result.index === regex.lastIndex) {
-    regex.lastIndex++;
-  }
+  regex.lastIndex++;
 
   return replaceSlidingRegexMatches(next_input, replacer, regex);
 }

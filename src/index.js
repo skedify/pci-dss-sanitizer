@@ -7,6 +7,7 @@ import pipe from 'multipipe';
 export default function sanitize(input) {
   input = replaceAccountNumber(input);
   input = replaceCardNumber(input);
+
   return input;
 }
 
@@ -19,19 +20,20 @@ export function async(input, callback) {
     const stream = createStream();
 
     const buffer = [];
+
     stream.on('data', buffer.push.bind(buffer));
     stream.on('end', () => {
       const output = Buffer.concat(buffer).toString();
 
-      if (callback) {
-        callback(output);
-      }
+      callback && callback(output);
 
       resolve(output);
+
       return;
     });
 
     stream.end(input);
+
     return;
   });
 }

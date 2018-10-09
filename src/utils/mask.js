@@ -3,7 +3,7 @@ export default function mask(input, {
   ignoreLeading = 4,
   ignoreTrailing = 4,
   replacement = '*',
-}) {
+} = {}) {
   const maskable = new RegExp(`[${ranges}]`, 'g');
 
   // count the number of maskable characters
@@ -13,11 +13,11 @@ export default function mask(input, {
 
   const max_maskable = total_maskable - ignoreTrailing;
 
-  // count the number of digits occurred
+  // count the number of matches occurred
   let digit_counter = 0;
   return input.replace(maskable, match => {
     digit_counter++;
-    // replace all digits except the first and last 4
+    // replace all matches except the first and last 4
     if (ignoreLeading < digit_counter && digit_counter <= max_maskable) {
       return replacement;
     }

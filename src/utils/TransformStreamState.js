@@ -6,7 +6,7 @@ export default class TransformStreamState {
     Object.defineProperties(this, {
       _buffer: { value: [] },
       _ignore: { value: options.ignore },
-      _expectations: { value: options.expectations },
+      _expectations: { value: options.expectations || [] },
       _mask: { value: options.mask },
       _sliding: { value: options.sliding || false },
     });
@@ -19,6 +19,7 @@ export default class TransformStreamState {
     this._current_expectation = 0;
     this._in_match = false;
     this._expectations.forEach(e => e.reset());
+
     return this;
   }
 
@@ -31,17 +32,21 @@ export default class TransformStreamState {
     if (this._in_match && this._ignore !== undefined && this._ignore.test(c)) {
       // don't handle the character, but keep it in our buffer for later processing
       this.buffer(c);
+
       return RESULT;
     }
 
     const expectation = this._expectations[this._current_expectation];
-    const expectsAnother = expectation(c);
+    const expectsAnother = expectation
+      ? expectation(c)
+      : false;
 
     if (!this._in_match) {
       if (expectsAnother === undefined) { // expectation wasn't met
         // whatever, we weren't matching anything anyway
         // just stream on through
         this.stream(c);
+
         return RESULT;
       }
       // wow, we matched an expectation!
@@ -58,6 +63,7 @@ export default class TransformStreamState {
         // oh wait, we were matching but now the expectation isn't met?!
         // so now we know our current buffer won't match anything
         this.unmatch();
+
         return RESULT;
       }
     }
@@ -70,6 +76,7 @@ export default class TransformStreamState {
         // in which case all expectations have been met: YEEY! We found a match!!
         const buffer = this.unbuffer();
         const masked = this._mask(buffer);
+
         if (masked === undefined) {
           // the mask function aparently thinks this isn't a match after all...
           // rebuffer everything
@@ -82,6 +89,7 @@ export default class TransformStreamState {
           // prepare for the next match
           this.reset();
         }
+
         return RESULT;
       }
     }
@@ -91,6 +99,7 @@ export default class TransformStreamState {
 
   buffer(c) {
     this._buffer.push(c);
+
     return this;
   }
 
@@ -99,7 +108,9 @@ export default class TransformStreamState {
       asString = amount;
       amount = this._buffer.length;
     }
+
     const chars = this._buffer.splice(0, amount);
+
     return asString
       ? chars.join('')
       : chars;
@@ -110,10 +121,12 @@ export default class TransformStreamState {
       ? 1
       : this._buffer.length,
     ));
+
     const rest = this.unbuffer(false);
+
     this.reset();
     rest.forEach(this.handleChar.bind(this));
+
     return this;
   }
-
 }

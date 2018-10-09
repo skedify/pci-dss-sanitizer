@@ -12,7 +12,7 @@
   },
   "scripts": {
     "prebuild": "npm run lint && rimraf lib",
-    "lint": "eslint --cache src/**/*.js test/**/*.js",
+    "lint": "eslint --cache src/**/*.js",
     "build": "rollup -c",
     "watch": "rollup -c --watch",
     "test": "cross-env NODE_ENV=test jest",

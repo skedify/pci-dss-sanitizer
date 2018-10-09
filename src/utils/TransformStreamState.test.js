@@ -23,46 +23,74 @@ describe('utils/TransformStreamState', () => {
     expect(out.join('')).toEqual('');
     expect(state._buffer.join('')).toEqual('');
 
+    state.handleChar('O');
+    expect(state._in_match).toEqual(false, 'no expectations met after "O"');
+    expect(state._current_expectation).toEqual(0);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('O');
+    expect(state._buffer.join('')).toEqual('');
+
+    state.handleChar('h');
+    expect(state._in_match).toEqual(true, 'first expectation met after "Oh" ("h" matches)');
+    expect(state._current_expectation).toEqual(1);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('O');
+    expect(state._buffer.join('')).toEqual('h');
+
+    state.handleChar('.');
+    expect(state._in_match).toEqual(false, 'no expectations met after "Oh,", reset after second expectation failed');
+    expect(state._current_expectation).toEqual(0);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('Oh.');
+    expect(state._buffer.join('')).toEqual('');
+
+    state.handleChar(' ');
+    expect(state._in_match).toEqual(false, 'no expectations met after "Oh, "');
+    expect(state._current_expectation).toEqual(0);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('Oh. ');
+    expect(state._buffer.join('')).toEqual('');
+
     state.handleChar('H');
     expect(state._in_match).toEqual(true, 'first expectation met after "H"');
     expect(state._current_expectation).toEqual(1);
     expect(masked).toEqual(false);
-    expect(out.join('')).toEqual('');
+    expect(out.join('')).toEqual('Oh. ');
     expect(state._buffer.join('')).toEqual('H');
 
     state.handleChar('e');
     expect(state._in_match).toEqual(true, 'second expectation met after "He"');
     expect(state._current_expectation).toEqual(2);
     expect(masked).toEqual(false);
-    expect(out.join('')).toEqual('');
+    expect(out.join('')).toEqual('Oh. ');
     expect(state._buffer.join('')).toEqual('He');
 
     state.handleChar('l');
     expect(state._in_match).toEqual(true, 'third expectation met after "Hal"');
     expect(state._current_expectation).toEqual(3);
     expect(masked).toEqual(false);
-    expect(out.join('')).toEqual('');
+    expect(out.join('')).toEqual('Oh. ');
     expect(state._buffer.join('')).toEqual('Hel');
 
     state.handleChar('l');
     expect(state._in_match).toEqual(true, 'fourth expectation met after "Hall"');
     expect(state._current_expectation).toEqual(4);
     expect(masked).toEqual(false);
-    expect(out.join('')).toEqual('');
+    expect(out.join('')).toEqual('Oh. ');
     expect(state._buffer.join('')).toEqual('Hell');
 
     state.handleChar('o');
     expect(state._in_match).toEqual(false, 'reset after all expectations were met');
     expect(state._current_expectation).toEqual(0);
     expect(masked).toEqual(true);
-    expect(out.join('')).toEqual('Hallo');
+    expect(out.join('')).toEqual('Oh. Hallo');
     expect(state._buffer.join('')).toEqual('');
 
     state.handleChar('!');
     expect(state._in_match).toEqual(false, 'no expectations met after');
     expect(state._current_expectation).toEqual(0);
     expect(masked).toEqual(true);
-    expect(out.join('')).toEqual('Hallo!');
+    expect(out.join('')).toEqual('Oh. Hallo!');
     expect(state._buffer.join('')).toEqual('');
   });
 
