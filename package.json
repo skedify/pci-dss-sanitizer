@@ -3,21 +3,24 @@
   "version": "0.0.0-development",
   "description": "Mask bank card info from strings",
   "main": "lib/index.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-push": "npm run check-coverage"
+    }
+  },
   "scripts": {
-    "prebuild": "eslint --cache src/**/*.js && rimraf lib",
+    "prebuild": "npm run lint && rimraf lib",
     "lint": "eslint --cache src/**/*.js test/**/*.js",
     "build": "rollup -c",
     "watch": "rollup -c --watch",
     "test": "cross-env NODE_ENV=test nyc mocha test/*.js test/**/*.js",
     "check-coverage": "nyc check-coverage --statements 100 --branches 100 --functions 100 --lines 100",
-    "prepublish": "npm test",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "publish-coverage": "codecov",
     "commit": "git-cz",
-    "precommit": "npm run lint",
-    "commitmsg": "node_modules/.bin/validate-commit-msg",
-    "prepush": "npm test && npm run check-coverage",
-    "postmerge": "npm install",
-    "postrewrite": "npm install"
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "homepage": "https://github.com/skedify/pci-dss-sanitizer",
   "author": {
@@ -45,32 +48,34 @@
     "multipipe": "^1.0.2"
   },
   "devDependencies": {
+    "@commitlint/cli": "^7.2.0",
+    "@commitlint/config-conventional": "^7.1.2",
     "babel": "^6.23.0",
     "babel-eslint": "^7.1.1",
     "babel-plugin-istanbul": "^4.0.0",
     "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.23.0",
     "chai": "^3.5.0",
-    "codecov.io": "^0.1.6",
-    "commitizen": "^2.9.6",
-    "cross-env": "^3.2.3",
-    "cz-conventional-changelog": "^2.0.0",
+    "codecov": "^3.1.0",
+    "commitizen": "^3.0.2",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^3.17.1",
     "eslint-plugin-better": "^0.1.5",
     "eslint-plugin-filenames": "^1.1.0",
     "eslint-plugin-require-in-package": "^1.0.3",
-    "husky": "^0.13.2",
+    "husky": "^1.1.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
-    "rimraf": "^2.6.1",
+    "rimraf": "^2.6.2",
     "rollup": "^0.41.4",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-eslint": "^3.0.0",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-watch": "^3.2.2",
-    "semantic-release": "^6.3.2",
-    "validate-commit-msg": "^2.11.1"
+    "semantic-release": "^15.9.17",
+    "travis-deploy-once": "^5.0.9"
   },
   "nyc": {
     "include": [
@@ -88,13 +93,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    },
-    "validate-commit-msg": {
-      "types": "conventional-commit-types",
-      "subjectPattern": "[a-z].+",
-      "subjectPatternErrorMsg": "Subject is invalid",
-      "helpMessage": "Use `npm run commit`. The subject should complete the following sentence: 'When applied, this commit will ...''"
+      "path": "cz-conventional-changelog"
     }
   }
 }
