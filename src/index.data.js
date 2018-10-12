@@ -1,7 +1,8 @@
 export const CARDNUMBERS = {
   '': '',
   // Single values
-  '783 91n 405 6703-7332 1913 8211.1 15 3579': '783 91n 405 6703-**** **** **11.1 15 3579',
+  '783 91n 405 6703-7332 1913 8211.1 15 3579':
+    '783 91n 405 6703-**** **** **11.1 15 3579',
   '5105 1051 0510 5100': '5105 **** **** 5100',
   '5420923878724339': '5420********4339',
   '5455330760000018': '5455********0018',
@@ -21,23 +22,30 @@ export const CARDNUMBERS = {
   '3530111333300000': '3530********0000',
   '3566002020360505': '3566********0505',
   // Embedded values
-  'lorem ipsum 6703-7332 1913 8211.1 lorem ipsum': 'lorem ipsum 6703-**** **** *211.1 lorem ipsum',
-  'This is my card number: 5420923878724339': 'This is my card number: 5420********4339',
-  'For later reference I\'ll leave my card number here, 5506920809243667.': 'For later reference I\'ll leave my card number here, 5506********3667.',
+  'lorem ipsum 6703-7332 1913 8211.1 lorem ipsum':
+    'lorem ipsum 6703-**** **** *211.1 lorem ipsum',
+  'This is my card number: 5420923878724339':
+    'This is my card number: 5420********4339',
+  "For later reference I'll leave my card number here, 5506920809243667.":
+    "For later reference I'll leave my card number here, 5506********3667.",
   '(378282246310005)': '(3782*******0005)',
-  'My number "4111111111111111" should be used': 'My number "4111********1111" should be used',
+  'My number "4111111111111111" should be used':
+    'My number "4111********1111" should be used',
   '6703 0513 9279 8300 2': '6703 **** **** *300 2',
   'text before 6703 0513 9279 8300 2': 'text before 6703 **** **** *300 2',
   '6703 0513 9279 8300 2 text after': '6703 **** **** *300 2 text after',
-  'text before 6703 0513 9279 8300 2 text after': 'text before 6703 **** **** *300 2 text after',
+  'text before 6703 0513 9279 8300 2 text after':
+    'text before 6703 **** **** *300 2 text after',
   // Multiple values
-  'This is my mastercard number: 5420923878724339, but I also have a debit card with the number 6703 0513 9279 8300 2 which can be used': 'This is my mastercard number: 5420********4339, but I also have a debit card with the number 6703 **** **** *300 2 which can be used',
-  'My numbers are 555 3042 2419 8410 5 and 601 1111 1111 1111 7.': 'My numbers are 555 3*** **** *410 5 and 601 1*** **** *111 7.',
-};
+  'This is my mastercard number: 5420923878724339, but I also have a debit card with the number 6703 0513 9279 8300 2 which can be used':
+    'This is my mastercard number: 5420********4339, but I also have a debit card with the number 6703 **** **** *300 2 which can be used',
+  'My numbers are 555 3042 2419 8410 5 and 601 1111 1111 1111 7.':
+    'My numbers are 555 3*** **** *410 5 and 601 1*** **** *111 7.',
+}
 
 export const PSEUDO_CARDNUMBERS = [
   'lorem ipsum 6703-7342 1913 8221.1 lorem ipsum',
-];
+]
 
 export const ACCOUNTNUMBERS = {
   '': '',
@@ -49,8 +57,10 @@ export const ACCOUNTNUMBERS = {
   'BH67 BMAG 0000 1299 1234 56': 'BH67 **** **** **** **34 56',
   'BE68 5390 0754 7034': 'BE68 **** **** 7034',
   'BA39 1290 0794 0102 8494': 'BA39 **** **** **** 8494',
-  'BR97 0036 0305 0000 1000 9795 493P 1': 'BR97 **** **** **** **** **** *93P 1',
-  'BR18 0000 0000 1414 5512 3924 100C 2': 'BR18 **** **** **** **** **** *00C 2',
+  'BR97 0036 0305 0000 1000 9795 493P 1':
+    'BR97 **** **** **** **** **** *93P 1',
+  'BR18 0000 0000 1414 5512 3924 100C 2':
+    'BR18 **** **** **** **** **** *00C 2',
   'BG80 BNBG 9661 1020 3456 78': 'BG80 **** **** **** **56 78',
   'CR05 1520 2001 0262 8406 6': 'CR05 **** **** **** *406 6',
   'HR12 1001 0051 8630 0016 0': 'HR12 **** **** **** *016 0',
@@ -62,7 +72,7 @@ export const ACCOUNTNUMBERS = {
   'GL89 6471 0001 0002 06': 'GL89 **** **** **02 06',
   'DO28 BAGR 0000 0001 2124 5361 1324': 'DO28 **** **** **** **** **** 1324',
   'EE38 2200 2210 2014 5685': 'EE38 **** **** **** 5685',
-  'FI2112345600000785': 'FI21**********0785',
+  FI2112345600000785: 'FI21**********0785',
   'FI55 4023 4567 0000 81': 'FI55 **** **** **00 81',
   'FR14 2004 1010 0505 0001 3M02 606': 'FR14 **** **** **** **** ***2 606',
   'GE29 NB00 0000 0101 9049 17': 'GE29 **** **** **** **49 17',
@@ -75,36 +85,44 @@ export const ACCOUNTNUMBERS = {
   'IE29 AIBK 9311 5212 3456 78': 'IE29 **** **** **** **56 78',
   'IL62 01 08 0000 00099999 999': 'IL62 ** ** **** *******9 999',
   'IT60 X054 2811 1010 0000 0123 456': 'IT60 **** **** **** **** ***3 456',
-  'JO94 CBJO 0010 0000 0000 0131 0003 02': 'JO94 **** **** **** **** **** **03 02',
+  'JO94 CBJO 0010 0000 0000 0131 0003 02':
+    'JO94 **** **** **** **** **** **03 02',
   'KZ86 125K ZT50 0410 0100': 'KZ86 **** **** **** 0100',
   'XK05 1212 0123 4567 8906': 'XK05 **** **** **** 8906',
-  'KW81 CBKU 0000 0000 0000 1234 5601 01': 'KW81 **** **** **** **** **** **01 01',
+  'KW81 CBKU 0000 0000 0000 1234 5601 01':
+    'KW81 **** **** **** **** **** **01 01',
   'LV80 BANK 0000 4351 9500 1': 'LV80 **** **** **** *500 1',
   'LB62 0999 0000 0001 0019 0122 9114': 'LB62 **** **** **** **** **** 9114',
   'LI21 0881 0000 2324 013A A': 'LI21 **** **** **** *13A A',
   'LT12 1000 0111 0100 1000': 'LT12 **** **** **** 1000',
   'LU28 0019 4006 4475 0000': 'LU28 **** **** **** 0000',
   'MK07 2501 2000 0058 984': 'MK07 **** **** ***8 984',
-  'MT84 MALT 0110 0001 2345 MTLC AST0 01S': 'MT84 **** **** **** **** **** ***0 01S',
+  'MT84 MALT 0110 0001 2345 MTLC AST0 01S':
+    'MT84 **** **** **** **** **** ***0 01S',
   'MR13 0002 0001 0100 0012 3456 753': 'MR13 **** **** **** **** ***6 753',
-  'MU17 BOMM 0101 1010 3030 0200 000M UR': 'MU17 **** **** **** **** **** **0M UR',
+  'MU17 BOMM 0101 1010 3030 0200 000M UR':
+    'MU17 **** **** **** **** **** **0M UR',
   'MD24 AG00 0225 1000 1310 4168': 'MD24 **** **** **** **** 4168',
   'MC58 11222 00001 0123456789030': 'MC58 ***** ***** *********9030',
   'ME25 5050 0001 2345 6789 51': 'ME25 **** **** **** **89 51',
   'NL91 ABNA 0417 1643 00': 'NL91 **** **** **43 00',
   'NO93 8601 1117 947': 'NO93 **** ***7 947',
   'PK36 SCBL 0000 0011 2345 6702': 'PK36 **** **** **** **** 6702',
-  'PS92 PALS 0000 0000 0400 1234 5670 2': 'PS92 **** **** **** **** **** *670 2',
+  'PS92 PALS 0000 0000 0400 1234 5670 2':
+    'PS92 **** **** **** **** **** *670 2',
   'PL61 1090 1014 0000 0712 1981 2874': 'PL61 **** **** **** **** **** 2874',
   'PT50 0002 0123 1234 5678 9015 4': 'PT50 **** **** **** **** *015 4',
-  'QA58 DOHB 0000 1234 5678 90AB CDEF G': 'QA58 **** **** **** **** **** *DEF G',
+  'QA58 DOHB 0000 1234 5678 90AB CDEF G':
+    'QA58 **** **** **** **** **** *DEF G',
   'RO49 AAAA 1B31 0075 9384 0000': 'RO49 **** **** **** **** 0000',
-  'LC55 HEMM 0001 0001 0012 0012 0002 3015': 'LC55 **** **** **** **** **** **** 3015',
+  'LC55 HEMM 0001 0001 0012 0012 0002 3015':
+    'LC55 **** **** **** **** **** **** 3015',
   'SM86 U032 2509 8000 0000 0270 100': 'SM86 **** **** **** **** ***0 100',
   'ST68 0001 0001 0051 8453 1011 2': 'ST68 **** **** **** **** *011 2',
   'SA03 8000 0000 6080 1016 7519': 'SA03 **** **** **** **** 7519',
   'RS35 2600 0560 1001 6113 79': 'RS35 **** **** **** **13 79',
-  'SC18 SSCB1101 0000 0000 0000 1497 USD': 'SC18 ******** **** **** **** ***7 USD',
+  'SC18 SSCB1101 0000 0000 0000 1497 USD':
+    'SC18 ******** **** **** **** ***7 USD',
   'SK31 1200 0000 1987 4263 7541': 'SK31 **** **** **** **** 7541',
   'SI56 2633 0001 2039 086': 'SI56 **** **** ***9 086',
   'ES91 2100 0418 4502 0005 1332': 'ES91 **** **** **** **** 1332',
@@ -113,32 +131,44 @@ export const ACCOUNTNUMBERS = {
   'TL38 0080 0123 4567 8910 157': 'TL38 **** **** **** ***0 157',
   'TN59 1000 6035 1835 9847 8831': 'TN59 **** **** **** **** 8831',
   'TR33 0006 1005 1978 6457 8413 26': 'TR33 **** **** **** **** **13 26',
-  'UA21 3996 2200 0002 6007 2335 6600 1': 'UA21 **** **** **** **** **** *600 1',
+  'UA21 3996 2200 0002 6007 2335 6600 1':
+    'UA21 **** **** **** **** **** *600 1',
   'AE07 0331 2345 6789 0123 456': 'AE07 **** **** **** ***3 456',
   'GB29 NWBK 6016 1331 9268 19': 'GB29 **** **** **** **68 19',
   'VG96 VPVG 0000 0123 4567 8901': 'VG96 **** **** **** **** 8901',
   // Embedded values
-  'My account should be DE89 3704 0044 0532 0130 00, but I\'m not quite sure ': 'My account should be DE89 **** **** **** **30 00, but I\'m not quite sure ',
-  'Here is my number: "UA21 3996 2200 0002 6007 2335 6600 1", mind the extended format': 'Here is my number: "UA21 **** **** **** **** **** *600 1", mind the extended format',
+  "My account should be DE89 3704 0044 0532 0130 00, but I'm not quite sure ":
+    "My account should be DE89 **** **** **** **30 00, but I'm not quite sure ",
+  'Here is my number: "UA21 3996 2200 0002 6007 2335 6600 1", mind the extended format':
+    'Here is my number: "UA21 **** **** **** **** **** *600 1", mind the extended format',
   '(MK07 2501 2000 0058 984)': '(MK07 **** **** ***8 984)',
   '---FI2112345600000785': '---FI21**********0785',
   'LV80 BANK 0000 4351 9500 1---': 'LV80 **** **** **** *500 1---',
   '!RO49 AAAA 1B31 0075 9384 0000!': '!RO49 **** **** **** **** 0000!',
-  '$ to MT84 MALT 0110 0001 2345 MTLC AST0 01S please': '$ to MT84 **** **** **** **** **** ***0 01S please',
+  '$ to MT84 MALT 0110 0001 2345 MTLC AST0 01S please':
+    '$ to MT84 **** **** **** **** **** ***0 01S please',
   '& $$$NO93 8601 1117 947$$$': '& $$$NO93 **** ***7 947$$$',
   'BE27063570936173 text after': 'BE27********6173 text after',
   'text before BE27063570936173': 'text before BE27********6173',
-  'text before BE27063570936173 text after': 'text before BE27********6173 text after',
-  'already masked LV80 **** **** **** *500 1---BE27063570936173': 'already masked LV80 **** **** **** *500 1---BE27********6173',
+  'text before BE27063570936173 text after':
+    'text before BE27********6173 text after',
+  'already masked LV80 **** **** **** *500 1---BE27063570936173':
+    'already masked LV80 **** **** **** *500 1---BE27********6173',
   // Multiple values
-  'My business account should be DE89 3704 0044 0532 0130 00, but I\'m not quite sure. Otherwise, here is my private number: "UA21 3996 2200 0002 6007 2335 6600 1". Mind the extended format': 'My business account should be DE89 **** **** **** **30 00, but I\'m not quite sure. Otherwise, here is my private number: "UA21 **** **** **** **** **** *600 1". Mind the extended format',
-  'LV80 BANK 0000 4351 9500 1---BE27063570936173': 'LV80 **** **** **** *500 1---BE27********6173',
-  'he who laughs last LV80 BANK 0000 4351 9500 1---BE27063570936173': 'he who laughs last LV80 **** **** **** *500 1---BE27********6173',
-  'LV80 BANK 0000 4351 9500 1---BE27063570936173 laughs best': 'LV80 **** **** **** *500 1---BE27********6173 laughs best',
-  'he who laughs last LV80 BANK 0000 4351 9500 1---BE27063570936173 laughs best': 'he who laughs last LV80 **** **** **** *500 1---BE27********6173 laughs best',
-};
+  'My business account should be DE89 3704 0044 0532 0130 00, but I\'m not quite sure. Otherwise, here is my private number: "UA21 3996 2200 0002 6007 2335 6600 1". Mind the extended format':
+    'My business account should be DE89 **** **** **** **30 00, but I\'m not quite sure. Otherwise, here is my private number: "UA21 **** **** **** **** **** *600 1". Mind the extended format',
+  'LV80 BANK 0000 4351 9500 1---BE27063570936173':
+    'LV80 **** **** **** *500 1---BE27********6173',
+  'he who laughs last LV80 BANK 0000 4351 9500 1---BE27063570936173':
+    'he who laughs last LV80 **** **** **** *500 1---BE27********6173',
+  'LV80 BANK 0000 4351 9500 1---BE27063570936173 laughs best':
+    'LV80 **** **** **** *500 1---BE27********6173 laughs best',
+  'he who laughs last LV80 BANK 0000 4351 9500 1---BE27063570936173 laughs best':
+    'he who laughs last LV80 **** **** **** *500 1---BE27********6173 laughs best',
+}
 
 export const BOTH = {
   '': '',
-  'My business account should be DE89 3704 0044 0532 0130 00, but I\'m not quite sure. The cardnumber for that is 5105 1051 0510 5100': 'My business account should be DE89 **** **** **** **30 00, but I\'m not quite sure. The cardnumber for that is 5105 **** **** 5100',
-};
+  "My business account should be DE89 3704 0044 0532 0130 00, but I'm not quite sure. The cardnumber for that is 5105 1051 0510 5100":
+    "My business account should be DE89 **** **** **** **30 00, but I'm not quite sure. The cardnumber for that is 5105 **** **** 5100",
+}

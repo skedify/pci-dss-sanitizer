@@ -1,4 +1,4 @@
-export const FILLER_CHARACTERS = '[\\s\\.\\-]';
+export const FILLER_CHARACTERS = '[\\s\\.\\-]'
 
 export const IBAN_FORMATS = [
   `AE(?:${FILLER_CHARACTERS}?[0-9]){21}`, //United Arab Emirates
@@ -73,15 +73,14 @@ export const IBAN_FORMATS = [
   `UA(?:${FILLER_CHARACTERS}?[0-9]){8}(?:${FILLER_CHARACTERS}?[0-9A-Z]){19}`, //Ukraine
   `VG(?:${FILLER_CHARACTERS}?[0-9]){2}(?:${FILLER_CHARACTERS}?[A-Z]){4}(?:${FILLER_CHARACTERS}?[0-9]){16}`, //Virgin Islands, British
   `XK(?:${FILLER_CHARACTERS}?[0-9]){18}`, //Republic of Kosovo
-];
+]
 
 /**
  * Regular Expression that matches a bank card number of a particular length
  */
 export default class IBANRegExp extends RegExp {
-
-  constructor() { // eslint-disable-line better/explicit-return
-    super(IBAN_FORMATS.map(f => `(${f})`).join('|'), 'i');
+  constructor() {
+    // eslint-disable-line better/explicit-return
+    super(IBAN_FORMATS.map(f => `(${f})`).join('|'), 'i')
   }
-
 }
