@@ -1,24 +1,21 @@
-import createIBANFilterStream from '../../src/accountnumber/createIBANFilterStream';
-import { expect } from 'chai';
+import createIBANFilterStream from './createIBANFilterStream';
 
-import { ACCOUNTNUMBERS } from '../.data';
+import { ACCOUNTNUMBERS } from '../index.data';
 
-describe('accountnumber/createIBANFilterStream', function() {
-
-  it('should mask a card number in a stream', function(done) {
-    this.timeout(0); // eslint-disable-line no-invalid-this
-
+describe('accountnumber/createIBANFilterStream', () => {
+  it('should mask a card number in a stream', (done) => {
     const inputs = Object.keys(ACCOUNTNUMBERS);
     let count = inputs.length;
 
     inputs.forEach(input => {
       const stream = createIBANFilterStream();
       const buffer = [];
+
       stream.on('data', buffer.push.bind(buffer));
       stream.on('end', () => {
         const output = Buffer.concat(buffer).toString();
 
-        expect(output).to.equal(ACCOUNTNUMBERS[input]);
+        expect(output).toEqual(ACCOUNTNUMBERS[input]);
 
         if (--count === 0) {
           done();
@@ -27,7 +24,5 @@ describe('accountnumber/createIBANFilterStream', function() {
 
       stream.end(input);
     });
-
   });
-
 });

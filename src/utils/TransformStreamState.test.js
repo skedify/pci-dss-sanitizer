@@ -1,9 +1,8 @@
-import TransformStreamState from '../../src/utils/TransformStreamState';
-import expectChar from '../../src/utils/expect';
-import { expect } from 'chai';
+/* eslint-disable filenames/match-regex */
+import TransformStreamState from './TransformStreamState';
+import expectChar from './expect';
 
 describe('utils/TransformStreamState', () => {
-
   it('should correctly transition through expectations', () => {
     const out = [];
     let masked = false;
@@ -11,87 +10,60 @@ describe('utils/TransformStreamState', () => {
     const state = new TransformStreamState(c => out.push(c), {
       mask: s => {
         masked = true;
-        expect(s).to.equal('shit');
-        return s.replace(/I/i, '*');
+        expect(s).toEqual('Hello');
+
+        return s.replace(/E/i, 'a');
       },
-      expectations: [expectChar(/S/i), expectChar(/H/i), expectChar(/I/i), expectChar(/T/i)],
+      expectations: [expectChar(/H/i), expectChar(/E/i), expectChar(/L/i), expectChar(/L/i), expectChar(/O/i)],
     });
-    expect(state._in_match).to.equal(false, 'no expectations met after ""');
-    expect(state._current_expectation).to.equal(0);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('');
-    expect(state._buffer.join('')).to.equal('');
+
+    expect(state._in_match).toEqual(false, 'no expectations met after ""');
+    expect(state._current_expectation).toEqual(0);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('');
+    expect(state._buffer.join('')).toEqual('');
 
     state.handleChar('H');
-    expect(state._in_match).to.equal(false, 'no expectations met after "H"');
-    expect(state._current_expectation).to.equal(0);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('H');
-    expect(state._buffer.join('')).to.equal('');
+    expect(state._in_match).toEqual(true, 'first expectation met after "H"');
+    expect(state._current_expectation).toEqual(1);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('');
+    expect(state._buffer.join('')).toEqual('H');
 
-    state.handleChar('o');
-    expect(state._in_match).to.equal(false, 'no expectations met after "Ho"');
-    expect(state._current_expectation).to.equal(0);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('Ho');
-    expect(state._buffer.join('')).to.equal('');
+    state.handleChar('e');
+    expect(state._in_match).toEqual(true, 'second expectation met after "He"');
+    expect(state._current_expectation).toEqual(2);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('');
+    expect(state._buffer.join('')).toEqual('He');
 
     state.handleChar('l');
-    expect(state._in_match).to.equal(false, 'no expectations met after "Hol"');
-    expect(state._current_expectation).to.equal(0);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('Hol');
-    expect(state._buffer.join('')).to.equal('');
+    expect(state._in_match).toEqual(true, 'third expectation met after "Hal"');
+    expect(state._current_expectation).toEqual(3);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('');
+    expect(state._buffer.join('')).toEqual('Hel');
 
-    state.handleChar('y');
-    expect(state._in_match).to.equal(false, 'no expectations met after "Holy"');
-    expect(state._current_expectation).to.equal(0);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('Holy');
-    expect(state._buffer.join('')).to.equal('');
+    state.handleChar('l');
+    expect(state._in_match).toEqual(true, 'fourth expectation met after "Hall"');
+    expect(state._current_expectation).toEqual(4);
+    expect(masked).toEqual(false);
+    expect(out.join('')).toEqual('');
+    expect(state._buffer.join('')).toEqual('Hell');
 
-    state.handleChar(' ');
-    expect(state._in_match).to.equal(false, 'no expectations met after "Holy "');
-    expect(state._current_expectation).to.equal(0);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('Holy ');
-    expect(state._buffer.join('')).to.equal('');
-
-    state.handleChar('s');
-    expect(state._in_match).to.equal(true, 'first expectation met after "Holy s"');
-    expect(state._current_expectation).to.equal(1);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('Holy ');
-    expect(state._buffer.join('')).to.equal('s');
-
-    state.handleChar('h');
-    expect(state._in_match).to.equal(true, 'second expectation met after "Holy sh"');
-    expect(state._current_expectation).to.equal(2);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('Holy ');
-    expect(state._buffer.join('')).to.equal('sh');
-
-    state.handleChar('i');
-    expect(state._in_match).to.equal(true, 'third expectation met after "Holy shi"');
-    expect(state._current_expectation).to.equal(3);
-    expect(masked).to.equal(false);
-    expect(out.join('')).to.equal('Holy ');
-    expect(state._buffer.join('')).to.equal('shi');
-
-    state.handleChar('t');
-    expect(state._in_match).to.equal(false, 'reset after all expectations were met');
-    expect(state._current_expectation).to.equal(0);
-    expect(masked).to.equal(true);
-    expect(out.join('')).to.equal('Holy sh*t');
-    expect(state._buffer.join('')).to.equal('');
+    state.handleChar('o');
+    expect(state._in_match).toEqual(false, 'reset after all expectations were met');
+    expect(state._current_expectation).toEqual(0);
+    expect(masked).toEqual(true);
+    expect(out.join('')).toEqual('Hallo');
+    expect(state._buffer.join('')).toEqual('');
 
     state.handleChar('!');
-    expect(state._in_match).to.equal(false, 'no expectations met after');
-    expect(state._current_expectation).to.equal(0);
-    expect(masked).to.equal(true);
-    expect(out.join('')).to.equal('Holy sh*t!');
-    expect(state._buffer.join('')).to.equal('');
-
+    expect(state._in_match).toEqual(false, 'no expectations met after');
+    expect(state._current_expectation).toEqual(0);
+    expect(masked).toEqual(true);
+    expect(out.join('')).toEqual('Hallo!');
+    expect(state._buffer.join('')).toEqual('');
   });
 
   it('should correctly transition through false positives', () => {
@@ -102,9 +74,11 @@ describe('utils/TransformStreamState', () => {
       ignore: /[\s\.\-]/,
       mask: s => {
         masked = true;
-        expect(s).to.equal('AL47 2121 1009 0000 0X02 3569 8741');
+        expect(s).toEqual('AL47 2121 1009 0000 0X02 3569 8741');
+
         return s.replace(/./g, '*');
       },
+
       expectations: [expectChar('A'), expectChar('L'), expectChar(/[0-9]/, 10), expectChar(/[0-9A-Z]/i, 16)],
     });
 
@@ -115,14 +89,14 @@ describe('utils/TransformStreamState', () => {
     }
 
     function verify(_out, expectation = 0, buffer = '', _masked = false) {
-      expect(state._in_match).to.equal(expectation > 0, `currently matching (after +"${last_char}" -> "${_out}")`);
-      expect(state._current_expectation).to.equal(expectation, `current expectation (after +"${last_char}" -> "${_out}")`);
-      expect(masked).to.equal(_masked, `masked (after +"${last_char}" -> "${_out}")`);
-      expect(out.join('')).to.equal(_out, `current output (after +"${last_char}" -> "${_out}")`);
-      expect(state._buffer.join('')).to.equal(buffer, `current buffer (after +"${last_char}" -> "${_out}")`);
+      expect(state._in_match).toEqual(expectation > 0, `currently matching (after +"${last_char}" -> "${_out}")`);
+      expect(state._current_expectation).toEqual(expectation, `current expectation (after +"${last_char}" -> "${_out}")`);
+      expect(masked).toEqual(_masked, `masked (after +"${last_char}" -> "${_out}")`);
+      expect(out.join('')).toEqual(_out, `current output (after +"${last_char}" -> "${_out}")`);
+      expect(state._buffer.join('')).toEqual(buffer, `current buffer (after +"${last_char}" -> "${_out}")`);
     }
 
-    expect(state._in_match).to.equal(false, 'no expectations met after ""');
+    expect(state._in_match).toEqual(false, 'no expectations met after ""');
     verify('');
 
     type('T'); verify('T');
@@ -184,7 +158,6 @@ describe('utils/TransformStreamState', () => {
     type('1'); verify('Transfer ALL to **********************************', 0, '', true);
 
     type('.'); verify('Transfer ALL to **********************************.', 0, '', true);
-
   });
 
   it('should correctly transition through false positives when sliding', () => {
@@ -198,18 +171,23 @@ describe('utils/TransformStreamState', () => {
       mask: s => {
         let ascending = undefined;
         let failed = false;
+
         s.split('').filter(c => c.match(/[0-9]/)).map(c => parseInt(c, 10)).reduce((a, b) => {
           if (ascending === undefined) {
             ascending = b > a;
           } else if (!failed) {
             failed = b > a !== ascending;
           }
+
           return b;
         });
+
         if (failed) {
           return undefined;
         }
+
         masked++;
+
         return s.replace(/[0-9]/g, ascending
           ? '+'
           : '-');
@@ -223,13 +201,13 @@ describe('utils/TransformStreamState', () => {
     }
 
     function verify(_out, matching = false, buffer = '', _masked = 0) {
-      expect(state._in_match).to.equal(matching, `currently matching (after +"${last_char}" -> "${_out}")`);
-      expect(masked).to.equal(_masked, `masked (after +"${last_char}" -> "${_out}")`);
-      expect(out.join('')).to.equal(_out, `current output (after +"${last_char}" -> "${_out}")`);
-      expect(state._buffer.join('')).to.equal(buffer, `current buffer (after +"${last_char}" -> "${_out}")`);
+      expect(state._in_match).toEqual(matching, `currently matching (after +"${last_char}" -> "${_out}")`);
+      expect(masked).toEqual(_masked, `masked (after +"${last_char}" -> "${_out}")`);
+      expect(out.join('')).toEqual(_out, `current output (after +"${last_char}" -> "${_out}")`);
+      expect(state._buffer.join('')).toEqual(buffer, `current buffer (after +"${last_char}" -> "${_out}")`);
     }
 
-    expect(state._in_match).to.equal(false, 'no expectations met after ""');
+    expect(state._in_match).toEqual(false, 'no expectations met after ""');
     verify('');
 
     type('n'); verify('n');
@@ -251,7 +229,5 @@ describe('utils/TransformStreamState', () => {
     type('2'); verify('nr:13+++.+76 ----', false, '', 2);
     type('0'); verify('nr:13+++.+76 ----', true, '0', 2);
     type('.'); verify('nr:13+++.+76 ----', true, '0.', 2);
-
   });
-
 });

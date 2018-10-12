@@ -1,29 +1,27 @@
-import createFilterStream from '../../src/utils/createFilterStream';
-import expectChar from '../../src/utils/expect';
-import { expect } from 'chai';
+import createFilterStream from './createFilterStream';
+import expectChar from './expect';
 
 describe('utils/createFilterStream', () => {
-
   it('should create a stream that filters according to the set expectations', (done) => {
     const stream = createFilterStream({
       mask: s => {
-        expect(s).to.equal('shit');
-        return s.replace(/I/i, '*');
+        expect(s).toEqual('Hello');
+
+        return s.replace(/E/i, 'a');
       },
-      expectations: [expectChar(/S/i), expectChar(/H/i), expectChar(/I/i), expectChar(/T/i)],
+      expectations: [expectChar(/H/i), expectChar(/E/i), expectChar(/L/i), expectChar(/L/i), expectChar(/O/i)],
     });
     const buffer = [];
+
     stream.on('data', buffer.push.bind(buffer));
     stream.on('end', () => {
       const output = Buffer.concat(buffer).toString();
 
-      expect(output).to.equal('Holy sh*t!');
+      expect(output).toEqual('Hallo!');
 
       done();
     });
 
-    stream.end('Holy shit!');
-
+    stream.end('Hello!');
   });
-
 });

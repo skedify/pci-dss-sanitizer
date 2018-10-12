@@ -1,17 +1,13 @@
-import replace from '../../src/accountnumber/replace';
-import { expect } from 'chai';
+import replace from './replace';
 
-import { ACCOUNTNUMBERS } from '../.data';
+import { ACCOUNTNUMBERS } from '../index.data';
 
 describe('accountnumber/replace', () => {
-
   it('should mask all digits except the first and final four', () => {
-
     Object.keys(ACCOUNTNUMBERS).forEach(input => {
-      expect(replace(input)).to.equal(ACCOUNTNUMBERS[input]);
+      expect(replace(input)).toEqual(ACCOUNTNUMBERS[input]);
+
       return;
     });
-
   });
-
 });
