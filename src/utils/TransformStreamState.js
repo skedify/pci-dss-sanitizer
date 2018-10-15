@@ -1,6 +1,5 @@
 export default class TransformStreamState {
   constructor(stream, options) {
-    //eslint-disable-line better/explicit-return
     this.stream = stream
 
     Object.defineProperties(this, {

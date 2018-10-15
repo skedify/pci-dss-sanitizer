@@ -80,7 +80,6 @@ export const IBAN_FORMATS = [
  */
 export default class IBANRegExp extends RegExp {
   constructor() {
-    // eslint-disable-line better/explicit-return
     super(IBAN_FORMATS.map(f => `(${f})`).join('|'), 'i')
   }
 }

@@ -8,7 +8,6 @@ export const MAX_LENGTH = 19
  */
 export default class CardNumberRegExp extends RegExp {
   constructor(length) {
-    // eslint-disable-line better/explicit-return
     super(`(?=((?:\\d[\\s\\.\\-]?){${length}}))`, 'g')
   }
 }
