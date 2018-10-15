@@ -1,11 +1,11 @@
-import maskLuhn from './maskLuhn';
+import maskLuhn from './maskLuhn'
 
 export default function replaceIfCardNumber(match, p1) {
-  const masked = maskLuhn(p1);
+  const masked = maskLuhn(p1)
 
   if (masked === undefined) {
-    return p1;
+    return p1
   }
 
-  return masked;
+  return masked
 }

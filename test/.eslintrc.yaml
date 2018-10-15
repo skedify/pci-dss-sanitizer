@@ -1,5 +1,0 @@
----
-  env:
-    mocha: true
-  rules:
-    better/explicit-return: 0
