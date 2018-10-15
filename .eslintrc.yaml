@@ -1,175 +1,238 @@
 ---
-  root: true
-  env:
-    es6: true
-    browser: false
-    node: true
-  parser: babel-eslint
-  parserOptions:
-    sourceType: module
-    ecmaVersion: 6
-    ecmaFeatures:
-      impliedStrict: true
-  plugins:
-    - better
-    - filenames
-    - require-in-package
-  rules:
-    # try to keep filenames consistent
-    filenames/match-regex:
-      - 2
-      - ^([a-z][a-zA-Z-.]+)|([A-Z][A-Z_]+)|([A-Z][a-zA-Z]+)$
+root: true
+env:
+  es6: true
+  browser: false
+  node: true
+  jest: true
+parser: babel-eslint
+parserOptions:
+  sourceType: module
+  ecmaVersion: 6
+  ecmaFeatures:
+    impliedStrict: true
+    experimentalObjectRestSpread: true
+plugins:
+  - better
+  - filenames
+  - require-in-package
+  - prettier
+rules:
+  prettier/prettier:
+    - 2
+    - singleQuote: true
+      trailingComma: es5
+      semi: false
 
-    # disallow usage of console output
-    no-console: 2
-    no-debugger: 1
-    no-assert: 0
-    no-alert: 2
+  # keep filenames consistent
+  filenames/match-regex:
+    - 2
+    - ^([a-zA-Z][a-zA-Z0-9._-]+)$
 
-    # check for missing dependencies
-    require-in-package/require-in-package: 2
+  # disallow debugging in production code
+  no-alert: 2
+  no-assert: 0
+  no-console: 2
+  no-debugger: 1
 
-    #
-    better/no-classes: 0
-    better/no-new: 0
-    better/no-this: 0
-    better/no-exceptions: 1
-    better/no-ifs: 0
-    better/no-fors: 2
-    better/no-whiles: 2
-    better/no-switches: 2
-    better/no-deletes: 1
-    better/no-instanceofs: 2
-    better/no-nulls: 2
-    better/no-reassigns: 0
-    better/no-typeofs: 0
-    better/explicit-return: 1
-    better/no-variable-declaration: 0
-    prefer-template: 2
-    prefer-const:
-      - 2
-      - destructuring: any
-        ignoreReadBeforeAssign: false
+  # check for missing dependencies
+  require-in-package/require-in-package: 2
 
-    no-undef: 2
-    no-shadow: 2
-    no-shadow-restricted-names: 2
-    no-var: 1
-    no-unused-vars:
-      - 2
-      - vars: local
-        args: after-used
-        argsIgnorePattern: ^_
-    no-use-before-define: 1
-    comma-dangle:
-      - 1
-      - always-multiline
-    quotes:
-      - 1
-      - single
-    no-underscore-dangle: 0
-    no-dupe-args: 2
-    no-dupe-keys: 2
-    no-empty: 2
-    no-ex-assign: 2
-    no-extra-boolean-cast: 2
-    semi:
-      - 2
-      - always
-    no-extra-semi: 2
-    no-trailing-spaces:
-      - 1
-      - skipBlankLines: true
-    no-irregular-whitespace: 2
-    no-negated-in-lhs: 2
-    no-obj-calls: 2
-    # code style
-    key-spacing:
-      - 2
-      - beforeColon: false
-        afterColon: true
-        mode: strict
-    comma-spacing:
-      - 2
-      - before: false
-        after: true
-    array-bracket-spacing:
-      - 2
-      - never
-    object-curly-spacing:
-      - 2
-      - always
-    space-in-parens:
-      - 2
-      - never
-    space-infix-ops: 2
-    space-unary-ops:
-      - 2
-      - words: true
-        nonwords: false
-    keyword-spacing:
-      - 2
-      - before: true
-        after: true
-    quote-props:
-      - 2
-      - consistent-as-needed
-      - keywords: false
-    yoda: 2
-    brace-style:
-      - 2
-      - 1tbs
-    curly:
-      - 2
-      - all
-    indent:
-      - 2
-      - 2
-      - SwitchCase: 1
-        outerIIFEBody: 1
-        MemberExpression: 1
-        VariableDeclarator:
-          var: 2
-          let: 2
-          const: 3
-    no-extra-parens: 2
-    no-unneeded-ternary: 2
-    no-nested-ternary: 2
-    multiline-ternary: 2
-    operator-linebreak:
-      - 2
-      - before
-    dot-location:
-      - 2
-      - property
-    dot-notation: 2
-    no-else-return: 2
-    no-cond-assign: 2
-    no-constant-condition: 2
-    # help with regexes
-    no-invalid-regexp: 2
-    no-control-regex: 2
-    no-empty-character-class: 2
-    no-regex-spaces: 2
-    # don't override functions (they make stuff confusing)
-    no-func-assign: 2
-    # avoid writing code that can behave in unexpected ways
-    no-inner-declarations: 2
-    no-unsafe-finally: 2
-    no-unsafe-negation: 2
-    # warn about possible mistakes
-    no-template-curly-in-string: 1
-    no-unexpected-multiline: 1
-    no-invalid-this: 1
-    no-empty-pattern: 2
-    no-loop-func: 1
-    # enforce guidelines to avoid errors
-    no-sparse-arrays: 2
-    consistent-return: 2
-    no-unreachable: 2
-    use-isnan: 2
-    valid-typeof: 2
-    eqeqeq: 2
-    no-const-assign: 2
-    # give advice
-    complexity: 1
+  # follow (some of) the teachings of Douglas Crockford
+  better/no-fors: 2
+  better/no-whiles: 2
+  better/no-switches: 2
+  better/no-typeofs: 2
+  better/no-instanceofs: 2
+  better/no-nulls: 2
+  better/no-deletes: 1
+  better/no-exceptions: 0
+
+  # use ES6 features when they're better than the old alternative
+  prefer-template: 2
+  no-var: 2
+  prefer-const:
+    - 2
+    - destructuring: any
+      ignoreReadBeforeAssign: false
+  arrow-body-style:
+    - 2
+    - as-needed
+  arrow-parens:
+    - 2
+    - as-needed
+  prefer-destructuring: 2
+  prefer-rest-params: 2
+  prefer-spread: 2
+  prefer-arrow-callback:
+    - 2
+    - allowNamedFunctions: true
+
+  # disallow constructs that are almost always an error
+  no-cond-assign: 2
+  no-constant-condition: 2
+  no-dupe-args: 2
+  no-dupe-keys: 2
+  no-duplicate-case: 2
+  no-dupe-class-members: 2
+  no-empty: 2
+  no-empty-pattern: 2
+  no-inner-declarations: 2
+  no-irregular-whitespace: 2
+  no-obj-calls: 2
+  no-return-assign: 2
+  no-return-await: 2
+  no-sparse-arrays: 2
+  no-unreachable: 2
+  no-unsafe-finally: 2
+  no-unsafe-negation: 2
+  use-isnan: 2
+  valid-typeof: 2
+  array-callback-return: 2
+  no-global-assign: 2
+  no-octal: 2
+  no-octal-escape: 2
+  no-self-assign: 2
+  no-self-compare: 2
+  no-unmodified-loop-condition: 2
+  no-unused-expressions: 2
+  wrap-iife:
+    - 2
+    - inside
+  no-bitwise: 1
+  constructor-super: 2
+  no-this-before-super: 2
+  no-class-assign: 2
+  require-yield: 2
+
+  # don't reassign stuff (it confuses things down the line)
+  no-ex-assign: 2
+  no-func-assign: 2
+  no-param-reassign: 2
+
+  # don't do unnecessary things
+  no-extra-boolean-cast: 2
+  no-undef-init: 2
+  no-else-return: 2
+  no-extra-bind: 2
+  no-useless-call: 2
+  no-useless-concat: 2
+  no-useless-escape: 2
+  no-useless-return: 2
+  no-useless-rename: 2
+  no-useless-computed-key: 2
+  no-useless-constructor: 2
+
+  # help with regexes
+  no-control-regex: 2
+  no-invalid-regexp: 2
+  no-empty-character-class: 2
+  no-regex-spaces: 2
+  no-div-regex: 2
+
+  # guard a developer from making mistakes
+  no-use-before-define: 1
+  no-template-curly-in-string: 1
+  no-undef: 2
+  no-shadow: 2
+  no-shadow-restricted-names: 2
+  no-unused-vars:
+    - 2
+    - vars: local
+      args: after-used
+      argsIgnorePattern: ^_
+      varsIgnorePattern: ^_
+  no-loop-func: 2
+  no-redeclare: 2
+  no-catch-shadow: 2
+  radix: 2 # by default parseInt will auto-detect the radix, which sometimes causes weird quirks
+  require-await: 2
+  no-const-assign: 2
+
+  # apply some best practices
+  consistent-return: 2 # either do or don't return, make it explicit
+  no-empty-function: 2 # if you want a function that doesn't do anything, make it explicit
+  no-implicit-coercion: 2 # don't use (less-readable) tricks to do type conversion, make it explicit
+  no-caller: 2 # caller is deprecated and inhibits performance, don't use it
+  no-eval: 2
+  no-implied-eval: 2
+  no-new-func: 2 # another type of eval-ing
+  no-script-url: 2 # another type of eval-ing
+  no-extend-native: 2 # don't modify global objects
+  no-labels: 2 # labels quickly lead to GOTO-style coding, avoid at all costs
+  no-new: 2 # only instantiate classes when you're planning on reusing them
+  no-proto: 2 # __proto__ is deprecated
+  no-sequences: 2 # unreadable, prone to cause confusion and/or errors
+  no-throw-literal: 2 # when you really have to throw, at least use it right
+  no-void: 2 # there's really no reason why you'd need to use void
+  no-with: 2 # there's really no reason why you'd need to use with
+  prefer-promise-reject-errors: 2 # Errors make promise rejection reasons easier to pinpoint
+  no-floating-decimal: 2 # format floating point numbers nicely
+  no-lone-blocks: 2 # don't make blocks that have no syntactic meaning
+  yoda:
+    - 2
+    - never
+    - exceptRange: true
+  strict: 2 # don't be redundant, es6 is strict by default
+  no-array-constructor: 2 # avoid some common pitfalls with new Array
+
+  # some OO-specific hints (avoid using this unless really needed)
+  no-invalid-this: 1
+
+  # give advice
+  complexity: 1
+  max-depth: 2
+  max-nested-callbacks:
+    - 2
+    - max: 3
+  max-params:
+    - 1
+    - max: 5
+  max-statements:
+    - 1
+    - max: 30
+
+  # encourage use of newer JS
+  no-restricted-properties:
+    - 1
+    - object: _
+      property: extend
+      message: use Object.assign instead of _.extend
+  no-restricted-globals:
+    - 1
+    - event
+    - length
+    - name
+    - open
+
+  # some node/commonjs-specific things
+  global-require: 2
+  no-mixed-requires: 2
+  no-new-require: 2
+  handle-callback-err: 2
+  no-path-concat: 2
+
+  ## naming and properties
+  no-underscore-dangle: 0
+  func-name-matching: 2
+  func-names:
+    - 2
+    - as-needed
+  new-cap: 2
+  new-parens: 2
+
+  ## other conventions
+  consistent-this:
+    - 2
+    - self
+  func-style:
+    - 2
+    - declaration
+    - allowArrowFunctions: true
+  no-continue: 2
+  no-lonely-if: 2
+  no-multi-assign: 2
+  no-new-object: 2
+  no-new-symbol: 2
+  no-duplicate-imports: 2
+  symbol-description: 2

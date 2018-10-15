@@ -4,13 +4,13 @@
   "filenameRelative": "index.js",
   "sourceMaps": "inline",
   "plugins": [
-    "syntax-trailing-function-commas"
+    "syntax-trailing-function-commas",
+    "transform-object-rest-spread"
   ],
   "env": {
     "test": {
       "plugins": [
-        "transform-es2015-modules-commonjs",
-        "istanbul"
+        "transform-es2015-modules-commonjs"
       ]
     }
   }
