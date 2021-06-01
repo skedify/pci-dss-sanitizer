@@ -23,7 +23,10 @@ describe('pci-dss-sanitizer', () => {
           expect(output).toEqual(TESTS[input])
         })
       )
-    ).then(() => done(), () => done())
+    ).then(
+      () => done(),
+      () => done()
+    )
   })
 
   it('should also be available async without callback', done => {
@@ -37,6 +40,9 @@ describe('pci-dss-sanitizer', () => {
       )
     })
 
-    Promise.all(promises).then(() => done(), () => done())
+    Promise.all(promises).then(
+      () => done(),
+      () => done()
+    )
   })
 })

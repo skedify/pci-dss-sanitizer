@@ -46,8 +46,8 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "luhn": "~2.1.0",
-    "multipipe": "^1.0.2"
+    "luhn": "^2.4.1",
+    "multipipe": "^4.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.2.0",
