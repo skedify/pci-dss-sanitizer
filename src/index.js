@@ -14,10 +14,7 @@ export default function sanitize(input) {
 }
 
 export function createStream() {
-  return pipe(
-    createIBANFilterStream(),
-    createCardNumberFilterStream()
-  )
+  return pipe(createIBANFilterStream(), createCardNumberFilterStream())
 }
 
 export function async(input, callback) {
