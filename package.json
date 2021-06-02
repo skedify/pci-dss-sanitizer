@@ -27,7 +27,8 @@
     "publish-coverage": "codecov",
     "commit": "git-cz",
     "commit:lint-message": "commitlint --edit \"$1\"",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "release-candidate": "npm_scripts/release-candidate.sh"
   },
   "prettier": {
     "printWidth": 80,
