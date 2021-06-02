@@ -1,11 +1,11 @@
-import createFilterStream from '../utils/createFilterStream'
-import expect from '../utils/expect'
-import maskIBAN from './maskIBAN'
-import pipe from 'multipipe'
+import createFilterStream from '../utils/createFilterStream';
+import expect from '../utils/expect';
+import maskIBAN from './maskIBAN';
+import pipe from 'multipipe';
 
-const DIGIT = /[0-9]/
-const LETTER = /[A-Z]/i
-const ALPHANUM = /[0-9A-Z]/i
+const DIGIT = /[0-9]/;
+const LETTER = /[A-Z]/i;
+const ALPHANUM = /[0-9A-Z]/i;
 
 export default function createIBANFilterStream() {
   return pipe(
@@ -312,5 +312,5 @@ export default function createIBANFilterStream() {
         mask: maskIBAN,
       }))
       .map(config => createFilterStream(config))
-  )
+  );
 }
