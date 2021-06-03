@@ -6,6 +6,10 @@
     {
       "name": "rc",
       "prerelease": "rc"
-    }
+    },
+    {
+      "name": "rc/*",
+      "prerelease": "${name.replace(/[\W]+/g, '-')}'}"
+    },
   ]
 }

@@ -2,7 +2,12 @@
 
 BRANCH_INITIAL=`git branch --show-current`
 BRANCH_RC='rc'
-BRANCH_TO_MERGE=${1:-'origin/develop'}
+BRANCH_TO_MERGE=${1}
+
+if [ -n "$BRANCH_TO_MERGE" ]
+then 
+  BRANCH_RC="$BRANCH_RC/$BRANCH_TO_MERGE"
+fi
 
 LOCAL_RC=`(git show-ref --verify --quiet "refs/heads/$BRANCH_RC"); echo $?`
 if [ "0" = "$LOCAL_RC" ] 
