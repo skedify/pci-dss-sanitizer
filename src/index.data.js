@@ -41,11 +41,11 @@ export const CARDNUMBERS = {
     'This is my mastercard number: 5420********4339, but I also have a debit card with the number 6703 **** **** *300 2 which can be used',
   'My numbers are 555 3042 2419 8410 5 and 601 1111 1111 1111 7.':
     'My numbers are 555 3*** **** *410 5 and 601 1*** **** *111 7.',
-}
+};
 
 export const PSEUDO_CARDNUMBERS = [
   'lorem ipsum 6703-7342 1913 8221.1 lorem ipsum',
-]
+];
 
 export const ACCOUNTNUMBERS = {
   '': '',
@@ -165,10 +165,10 @@ export const ACCOUNTNUMBERS = {
     'LV80 **** **** **** *500 1---BE27********6173 laughs best',
   'he who laughs last LV80 BANK 0000 4351 9500 1---BE27063570936173 laughs best':
     'he who laughs last LV80 **** **** **** *500 1---BE27********6173 laughs best',
-}
+};
 
 export const BOTH = {
   '': '',
   "My business account should be DE89 3704 0044 0532 0130 00, but I'm not quite sure. The cardnumber for that is 5105 1051 0510 5100":
     "My business account should be DE89 **** **** **** **30 00, but I'm not quite sure. The cardnumber for that is 5105 **** **** 5100",
-}
+};
