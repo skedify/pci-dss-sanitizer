@@ -9,7 +9,7 @@
     },
     {
       "name": "rc-*",
-      "prerelease": "${name.replace(/[\W]+/g, '-')}'}"
+      "prerelease": "${name.replace(/[^a-zA-Z0-9]+/g, '-')}'}"
     },
   ]
 }
