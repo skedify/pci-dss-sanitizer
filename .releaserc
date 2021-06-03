@@ -1,0 +1,15 @@
+{
+  "branches": [
+    {
+      "name": "master"
+    },
+    {
+      "name": "rc",
+      "prerelease": "rc"
+    },
+    {
+      "name": "(rc-*|rc-*/*)",
+      "prerelease": "${name.replace(/[^a-zA-Z0-9]+/g, '-')}"
+    },
+  ]
+}

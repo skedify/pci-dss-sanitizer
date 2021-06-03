@@ -1,18 +1,18 @@
 export default function expectChars(regex, amount = 1) {
-  let remaining = amount
+  let remaining = amount;
 
   return Object.freeze(
     Object.defineProperties(
       c => {
         if (!c.match(regex)) {
-          remaining = amount
+          remaining = amount;
 
-          return undefined
+          return undefined;
         }
 
-        remaining--
+        remaining--;
 
-        return remaining > 0
+        return remaining > 0;
       },
       {
         length: {
@@ -20,10 +20,10 @@ export default function expectChars(regex, amount = 1) {
         },
         reset: {
           value: () => {
-            remaining = amount
+            remaining = amount;
           },
         },
       }
     )
-  )
+  );
 }

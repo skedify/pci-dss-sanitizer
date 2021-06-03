@@ -1,4 +1,4 @@
-import replaceSlidingRegexMatches from './replaceSlidingRegexMatches'
+import replaceSlidingRegexMatches from './replaceSlidingRegexMatches';
 
 /* eslint-disable-next-line max-params */
 export default function replaceRegexesWithDecreasingLength(
@@ -10,7 +10,7 @@ export default function replaceRegexesWithDecreasingLength(
   length = MAX_LENGTH
 ) {
   if (length < MIN_LENGTH || length > MAX_LENGTH) {
-    return input
+    return input;
   }
 
   return replaceRegexesWithDecreasingLength(
@@ -20,5 +20,5 @@ export default function replaceRegexesWithDecreasingLength(
     MIN_LENGTH,
     MAX_LENGTH,
     length - 1
-  )
+  );
 }
