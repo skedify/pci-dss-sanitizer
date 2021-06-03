@@ -1,9 +1,9 @@
-import createFilterStream from '../utils/createFilterStream'
-import expect from '../utils/expect'
-import maskLuhn from './maskLuhn'
-import pipe from 'multipipe'
+import createFilterStream from '../utils/createFilterStream';
+import expect from '../utils/expect';
+import maskLuhn from './maskLuhn';
+import pipe from 'multipipe';
 
-const DIGIT = /[0-9]/
+const DIGIT = /[0-9]/;
 
 export default function createCardNumberFilterStream() {
   return pipe(
@@ -24,5 +24,5 @@ export default function createCardNumberFilterStream() {
         sliding: true,
       }))
       .map(config => createFilterStream(config))
-  )
+  );
 }

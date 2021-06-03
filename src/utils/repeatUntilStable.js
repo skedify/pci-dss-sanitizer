@@ -1,11 +1,11 @@
 export default function repeatUntilStable(input, fn) {
-  const masked = fn(input)
+  const masked = fn(input);
 
   if (masked === input) {
     // no more matches were found, so we can stop processing
-    return input
+    return input;
   }
 
   // try to find another match
-  return repeatUntilStable(masked, fn)
+  return repeatUntilStable(masked, fn);
 }
