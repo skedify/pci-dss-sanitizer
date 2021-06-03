@@ -24,7 +24,7 @@ set -e
 git checkout master
 git pull
 git checkout -b "$BRANCH_RC" 
-git merge "$BRANCH_TO_MERGE" --commit -m "ci(releases) merging $BRANCH_TO_MERGE for a release-candidate" --no-verify
+git merge "$BRANCH_TO_MERGE" --commit -m "ci(releases) merging $BRANCH_TO_MERGE for a release-candidate"
 git push origin "$BRANCH_RC"
 
 git checkout "$BRANCH_INITIAL"
