@@ -49,6 +49,37 @@ sanitized_promise.then(function(sanitized_string) {
 
 Use `npm run commit` when you want to commit a change.
 
+### Releases
+
+This project uses [GitHub actions](https://docs.github.com/en/actions/reference) 
+and [semantic-release](https://github.com/semantic-release/semantic-release) for creating releases.
+
+#### Release Candidates
+
+To make a (temporary) release candidate, you can use the following commands:
+
+```bash
+# Create a new rc from the latest/remote develop
+npm run release-candidate
+```
+
+or 
+
+```bash
+# Create a new rc from a specific branch
+npm run release-candidate -- feature/SKED-XXXX
+```
+
+That command will make a new `rc` branch (locally and remotely) on which `semantic-release` is configured
+to create a new release candidate (see `.releaserc`).
+
+#### Final Releases
+
+Since `semantic-release` is currently configured to run on any `push`'es to `master`,
+creating and merging a GitHub Pull Request into `master` will trigger a new release automatically.
+
+Typically we do this via a temporary `release/next` or `release/SKED-XXXX` branch and creating a PR via GitHub UI.
+
 ### Stack
 
 This repostiory uses [TSDX](https://tsdx.io/) for development.
@@ -125,7 +156,3 @@ Per Palmer Group guidelines, [always use named exports.](https://github.com/palm
 There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
 
 For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
