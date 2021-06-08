@@ -7,9 +7,10 @@ source "$CURRENT_PATH/utils/examples.sh"
 
 exit_status=0
 
-for input in "${!default_examples[@]}"; do
+for index in "${!default_example_inputs[@]}"; do
+  input=${default_example_inputs[$index]}
+  expected=${default_example_outputs[$index]}
   test_result=`echo "$input" | node "$CURRENT_PATH/createStream.client.js"`
-  expected=${default_examples[$input]}
   
   if [ "$test_result" != "$expected" ]
   then
