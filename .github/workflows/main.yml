@@ -84,9 +84,6 @@ jobs:
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
 
-      - name: Publish Code Coverage
-        run: npm run publish-coverage
-
       - name: Publish Semantic Release
         uses: cycjimmy/semantic-release-action@v2
         id: semantic
